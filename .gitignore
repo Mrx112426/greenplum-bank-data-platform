@@ -1,0 +1,11 @@
+.env
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+*.log
+.pytest_cache/
+.cache/
+
+airflow/logs/*
+!airflow/logs/.gitignore

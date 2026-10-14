@@ -1,0 +1,204 @@
+name: ${COMPOSE_PROJECT_NAME:-distributed-data-platform}
+
+x-airflow-common: &airflow-common
+  build:
+    context: ./docker/airflow
+    args:
+      AIRFLOW_VERSION: ${AIRFLOW_VERSION:-2.11.2}
+  image: ${AIRFLOW_IMAGE_NAME:-distributed-data-platform-airflow:2.11.2}
+  environment: &airflow-common-environment
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__FERNET_KEY: ${AIRFLOW_FERNET_KEY:-}
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DB_USER:-airflow}:${AIRFLOW_DB_PASSWORD:-airflow}@postgres-airflow:5432/${AIRFLOW_DB_NAME:-airflow}
+    AIRFLOW_CONN_SOURCE_POSTGRES: >-
+      {"conn_type":"postgres","host":"postgres-source","login":"${SOURCE_POSTGRES_USER:-source_user}","password":"${SOURCE_POSTGRES_PASSWORD:-source_password}","schema":"${SOURCE_POSTGRES_DB:-source_db}","port":5432}
+    AIRFLOW_CONN_DEMO_POSTGRES: >-
+      {"conn_type":"postgres","host":"postgres-source","login":"${SOURCE_POSTGRES_USER:-source_user}","password":"${SOURCE_POSTGRES_PASSWORD:-source_password}","schema":"demo","port":5432}
+    AIRFLOW_CONN_GREENPLUM_DWH: >-
+      {"conn_type":"postgres","host":"greenplum","login":"${GREENPLUM_USER:-gpadmin}","password":"${GREENPLUM_PASSWORD:-123456}","schema":"${GREENPLUM_DATABASE_NAME:-dwh}","port":5432}
+    AIRFLOW_CONN_MINIO: >-
+      {"conn_type":"aws","login":"${MINIO_ROOT_USER:-minioadmin}","password":"${MINIO_ROOT_PASSWORD:-minioadmin123}","extra":{"endpoint_url":"http://minio:9000","region_name":"us-east-1"}}
+    PLATFORM_MINIO_BUCKET: ${MINIO_BUCKET:-raw-data}
+    PLATFORM_MINIO_ENDPOINT: http://minio:9000
+    PLATFORM_MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+    PLATFORM_MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+  user: "${AIRFLOW_UID:-50000}:0"
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/logs:/opt/airflow/logs
+    - ./airflow/plugins:/opt/airflow/plugins
+    - ./scripts:/opt/airflow/project-scripts:ro
+  networks:
+    - platform-network
+
+services:
+  postgres-source:
+    image: postgres:${POSTGRES_VERSION:-16.15}
+    environment:
+      POSTGRES_USER: ${SOURCE_POSTGRES_USER:-source_user}
+      POSTGRES_PASSWORD: ${SOURCE_POSTGRES_PASSWORD:-source_password}
+      POSTGRES_DB: ${SOURCE_POSTGRES_DB:-source_db}
+    ports:
+      - "${SOURCE_POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres-source-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - platform-network
+
+  postgres-airflow:
+    image: postgres:${POSTGRES_VERSION:-16.15}
+    environment:
+      POSTGRES_USER: ${AIRFLOW_DB_USER:-airflow}
+      POSTGRES_PASSWORD: ${AIRFLOW_DB_PASSWORD:-airflow}
+      POSTGRES_DB: ${AIRFLOW_DB_NAME:-airflow}
+    volumes:
+      - postgres-airflow-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - platform-network
+
+  minio:
+    image: ${MINIO_IMAGE:-pgsty/minio:RELEASE.2026-08-04T00-00-00Z}
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+    ports:
+      - "${MINIO_API_PORT:-9000}:9000"
+      - "${MINIO_CONSOLE_PORT:-9001}:9001"
+    volumes:
+      - minio-data:/data
+    restart: unless-stopped
+    networks:
+      - platform-network
+
+  greenplum:
+    image: ${GREENPLUM_IMAGE:-andruche/greenplum:7}
+    ports:
+      - "${GREENPLUM_PORT:-5434}:5432"
+    volumes:
+      - greenplum-data:/data
+    shm_size: 1gb
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          /usr/local/gpdb/bin/pg_isready -h localhost -p 5432
+          -U ${GREENPLUM_USER:-gpadmin}
+          -d postgres
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 120s
+    stop_grace_period: 120s
+    restart: unless-stopped
+    networks:
+      - platform-network
+
+  greenplum-init:
+    image: ${GREENPLUM_IMAGE:-andruche/greenplum:7}
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        source /usr/local/gpdb/greenplum_path.sh
+        until pg_isready -h greenplum -p 5432 -U "${GREENPLUM_USER:-gpadmin}" -d postgres; do
+          sleep 2
+        done
+        psql -h greenplum -U "${GREENPLUM_USER:-gpadmin}" -d postgres -tAc \
+          "SELECT 1 FROM pg_database WHERE datname = '${GREENPLUM_DATABASE_NAME:-dwh}'" | grep -q 1 || \
+          createdb -h greenplum -U "${GREENPLUM_USER:-gpadmin}" "${GREENPLUM_DATABASE_NAME:-dwh}"
+        psql -v ON_ERROR_STOP=1 -h greenplum -U "${GREENPLUM_USER:-gpadmin}" \
+          -d "${GREENPLUM_DATABASE_NAME:-dwh}" \
+          -f /opt/greenplum-init/001_create_dwh_schemas.sql
+    volumes:
+      - ./greenplum/init:/opt/greenplum-init:ro
+    depends_on:
+      greenplum:
+        condition: service_healthy
+    restart: "no"
+    networks:
+      - platform-network
+
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        python /opt/airflow/project-scripts/init_minio.py
+        airflow db migrate
+        airflow users create \
+          --username "${AIRFLOW_ADMIN_USERNAME:-admin}" \
+          --password "${AIRFLOW_ADMIN_PASSWORD:-admin}" \
+          --firstname "${AIRFLOW_ADMIN_FIRSTNAME:-Platform}" \
+          --lastname "${AIRFLOW_ADMIN_LASTNAME:-Admin}" \
+          --role Admin \
+          --email "${AIRFLOW_ADMIN_EMAIL:-admin@example.com}" || true
+    depends_on:
+      postgres-airflow:
+        condition: service_healthy
+      postgres-source:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      greenplum-init:
+        condition: service_completed_successfully
+    restart: "no"
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "${AIRFLOW_WEB_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    healthcheck:
+      test: ["CMD-SHELL", "airflow jobs check --job-type SchedulerJob --hostname $${HOSTNAME}"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  postgres-source-data:
+  postgres-airflow-data:
+  minio-data:
+  greenplum-data:
+
+networks:
+  platform-network:
+    name: ${PLATFORM_NETWORK_NAME:-data-platform-network}
+    driver: bridge
