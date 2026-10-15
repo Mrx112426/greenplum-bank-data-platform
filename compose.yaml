@@ -24,12 +24,18 @@ x-airflow-common: &airflow-common
     PLATFORM_MINIO_ENDPOINT: http://minio:9000
     PLATFORM_MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
     PLATFORM_MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin123}
+    EDW_SQL_DIR: /opt/airflow/project-sql
+    CBR_INITIAL_DAYS: ${CBR_INITIAL_DAYS:-30}
+    CBR_LOOKBACK_DAYS: ${CBR_LOOKBACK_DAYS:-7}
+    CBR_CHANGE_WARNING_PCT: ${CBR_CHANGE_WARNING_PCT:-20}
   user: "${AIRFLOW_UID:-50000}:0"
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
     - ./airflow/plugins:/opt/airflow/plugins
     - ./scripts:/opt/airflow/project-scripts:ro
+    - ./sql:/opt/airflow/project-sql:ro
+    - ./tests:/opt/airflow/project-tests:ro
   networks:
     - platform-network
 
