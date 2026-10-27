@@ -1,0 +1,51 @@
+[
+  {
+    "event": "snapshot_verified",
+    "table": "flights",
+    "rows": 214867
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "tickets",
+    "rows": 2949857
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "airports",
+    "rows": 104
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "bookings",
+    "rows": 2111110
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "exchange_rates",
+    "rows": 90
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "ticket_flights",
+    "rows": 8391852
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "boarding_passes",
+    "rows": 7925812
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "booking_sales_daily",
+    "rows": 392
+  },
+  {
+    "event": "snapshot_verified",
+    "table": "flight_airport_daily",
+    "rows": 178437
+  },
+  {
+    "event": "snapshot_reused",
+    "tables": 9
+  }
+]

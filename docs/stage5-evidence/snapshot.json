@@ -1,0 +1,139 @@
+{
+  "utc": "2026-10-27T12:08:39.087481+00:00",
+  "owner": "greenplum-bank-stage5-v1",
+  "tables": {
+    "flights": {
+      "source": "core.flights",
+      "columns": "flight_id,scheduled_departure,departure_airport,arrival_airport,aircraft_code",
+      "fingerprint": {
+        "rows": 214867,
+        "hash_sum_1": "8681642823600555140962",
+        "hash_sum_2": "1774404878011198419223"
+      }
+    },
+    "tickets": {
+      "source": "core.tickets",
+      "columns": "ticket_no,book_ref",
+      "fingerprint": {
+        "rows": 2949857,
+        "hash_sum_1": "306399042675893404487",
+        "hash_sum_2": "-399806039939317153731"
+      }
+    },
+    "airports": {
+      "source": "core.airports",
+      "columns": "airport_code,city",
+      "fingerprint": {
+        "rows": 104,
+        "hash_sum_1": "-5364722639431435364",
+        "hash_sum_2": "1586954813912009794"
+      }
+    },
+    "bookings": {
+      "source": "core.bookings",
+      "columns": "book_ref,book_date,total_amount",
+      "fingerprint": {
+        "rows": 2111110,
+        "hash_sum_1": "16085082305233551554649",
+        "hash_sum_2": "-3272729485620553211370"
+      }
+    },
+    "exchange_rates": {
+      "source": "core.exchange_rates",
+      "columns": "request_date,rate_date,currency_code,rate_value",
+      "fingerprint": {
+        "rows": 90,
+        "hash_sum_1": "-53320684639545575244",
+        "hash_sum_2": "-72412206272439758103"
+      }
+    },
+    "ticket_flights": {
+      "source": "core.ticket_flights",
+      "columns": "ticket_no,flight_id,fare_conditions,amount",
+      "fingerprint": {
+        "rows": 8391852,
+        "hash_sum_1": "-7945543047909742106488",
+        "hash_sum_2": "26248787990634135578766"
+      }
+    },
+    "boarding_passes": {
+      "source": "core.boarding_passes",
+      "columns": "ticket_no,flight_id,boarding_no,seat_no",
+      "fingerprint": {
+        "rows": 7925812,
+        "hash_sum_1": "-31359339736030424385136",
+        "hash_sum_2": "-4320621430290303257650"
+      }
+    },
+    "booking_sales_daily": {
+      "source": "dm.booking_sales_daily",
+      "columns": "booking_date,booking_count,booking_amount_rub",
+      "fingerprint": {
+        "rows": 392,
+        "hash_sum_1": "-115622195163520852116",
+        "hash_sum_2": "65808011208479996618"
+      }
+    },
+    "flight_airport_daily": {
+      "source": "dm.flight_airport_daily",
+      "columns": "flight_date,departure_airport,arrival_airport,flight_count,ticket_amount_rub",
+      "fingerprint": {
+        "rows": 178437,
+        "hash_sum_1": "4250260390625918517097",
+        "hash_sum_2": "2784779984672228713478"
+      }
+    }
+  },
+  "source_state": {
+    "layers": [
+      {
+        "layer": "core",
+        "batch_id": "5b34c54f77eb4b5b851b73d7707ab809"
+      },
+      {
+        "layer": "dm",
+        "batch_id": "5b34c54f77eb4b5b851b73d7707ab809"
+      },
+      {
+        "layer": "staging_cbr",
+        "batch_id": "5b34c54f77eb4b5b851b73d7707ab809"
+      },
+      {
+        "layer": "staging_flights",
+        "batch_id": "5b34c54f77eb4b5b851b73d7707ab809"
+      }
+    ],
+    "schemas": [
+      {
+        "nspname": "core"
+      },
+      {
+        "nspname": "dm"
+      },
+      {
+        "nspname": "dq"
+      },
+      {
+        "nspname": "staging"
+      }
+    ],
+    "counts_and_sums": [
+      {
+        "rows": 8391852,
+        "layer": "core",
+        "amount": "167409059100.00"
+      },
+      {
+        "rows": 8391852,
+        "layer": "dm",
+        "amount": "167409059100.00"
+      }
+    ]
+  },
+  "source_database": "dwh",
+  "details_fingerprint": {
+    "rows": 8391852,
+    "hash_sum_1": "-1287085982479020980836",
+    "hash_sum_2": "-2682026494373406298325"
+  }
+}

@@ -1,0 +1,99 @@
+PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.
+/data/coordinator/gpsne-1
+0|2|p|p|s|u|localhost|6000|/data/data1/gpsne0
+0|4|m|m|s|u|localhost|7000|/data/mirror1/gpsne0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gpsne1
+20261027:12:41:04:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Starting gpstate with args: -s
+20261027:12:41:04:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:12:41:04:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:12:41:04:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:12:41:04:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Gathering data from segments...
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--Coordinator Configuration & Status
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator host                  = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator postgres process ID   = 156
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator data directory        = /data/coordinator/gpsne-1
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator port                  = 5432
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator current role          = dispatch
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Greenplum initsystem version      = 7.0.0 build dev
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Greenplum current version         = PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Postgres version                  = 12.12
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Coordinator standby               = No coordinator standby configured
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Segment Instance Status Report
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Segment Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Hostname                              = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Address                               = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Datadir                               = /data/data1/gpsne0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Port                                  = 6000
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Mirroring Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current role                          = Primary
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Preferred role                        = Primary
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Mirror status                         = Synchronized
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Replication Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current write location                = 0/616016B8
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes remaining to send to mirror     = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Status
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      PID                                   = 122
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Configuration reports status as       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Database status                       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Segment Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Hostname                              = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Address                               = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Datadir                               = /data/mirror1/gpsne0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Port                                  = 7000
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Mirroring Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current role                          = Mirror
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Preferred role                        = Mirror
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Mirror status                         = Streaming
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Replication Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Sent Location                     = 0/616016B8
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Flush Location                    = 0/616016B8
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Replay Location                   = 0/616016B8
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes received but remain to flush    = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes received but remain to replay   = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Status
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      PID                                   = 121
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Configuration reports status as       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Segment status                        = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Segment Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Hostname                              = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Address                               = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Datadir                               = /data/data2/gpsne1
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Port                                  = 6001
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Mirroring Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current role                          = Primary
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Preferred role                        = Primary
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Mirror status                         = Synchronized
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Replication Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current write location                = 0/5BF4AD58
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes remaining to send to mirror     = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Status
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      PID                                   = 123
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Configuration reports status as       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Database status                       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Segment Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Hostname                              = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Address                               = localhost
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Datadir                               = /data/mirror2/gpsne1
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Port                                  = 7001
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Mirroring Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Current role                          = Mirror
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Preferred role                        = Mirror
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Mirror status                         = Streaming
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Replication Info
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Sent Location                     = 0/5BF4AD58
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Flush Location                    = 0/5BF4AD58
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      WAL Replay Location                   = 0/5BF4AD58
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes received but remain to flush    = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Bytes received but remain to replay   = 0
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Status
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      PID                                   = 124
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Configuration reports status as       = Up
+20261027:12:41:05:009526 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-      Segment status                        = Up

@@ -1,0 +1,462 @@
+[
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "policy": "BY (fare_conditions)",
+    "load_ms": 2965.6080419999853,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-7945543047909742106488",
+      "hash_sum_2": "26248787990634135578766"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 8251887,
+      "1": 139965
+    },
+    "min": 139965,
+    "max": 8251887,
+    "mean": 4195926,
+    "max_avg": 1.9666426433640631,
+    "cv_population": 0.9666426433640631,
+    "cv_sample_pct": 136.70391362136368
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "policy": "BY (ticket_no,flight_id)",
+    "load_ms": 1461.4814999999908,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-7945543047909742106488",
+      "hash_sum_2": "26248787990634135578766"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 4195513,
+      "1": 4196339
+    },
+    "min": 4195513,
+    "max": 4196339,
+    "mean": 4195926,
+    "max_avg": 1.0000984288092782,
+    "cv_population": 9.842880927833331e-05,
+    "cv_sample_pct": 0.013919935700965372
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "policy": "RANDOMLY",
+    "load_ms": 1317.4842930002342,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-7945543047909742106488",
+      "hash_sum_2": "26248787990634135578766"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 4193267,
+      "1": 4198585
+    },
+    "min": 4193267,
+    "max": 4198585,
+    "mean": 4195926,
+    "max_avg": 1.000633709936734,
+    "cv_population": 0.0006337099367338699,
+    "cv_sample_pct": 0.0896201187139635
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "policy": "BY (ticket_no)",
+    "load_ms": 1450.4185420000795,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-7945543047909742106488",
+      "hash_sum_2": "26248787990634135578766"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 4192684,
+      "1": 4199168
+    },
+    "min": 4192684,
+    "max": 4199168,
+    "mean": 4195926,
+    "max_avg": 1.000772654236514,
+    "cv_population": 0.0007726542365141806,
+    "cv_sample_pct": 0.10926981003033835
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "policy": "BY (flight_id)",
+    "load_ms": 1379.9123750004583,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-7945543047909742106488",
+      "hash_sum_2": "26248787990634135578766"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 4197260,
+      "1": 4194592
+    },
+    "min": 4194592,
+    "max": 4197260,
+    "mean": 4195926,
+    "max_avg": 1.0003179274372331,
+    "cv_population": 0.0003179274372331638,
+    "cv_sample_pct": 0.04496172935856611
+  },
+  {
+    "group": "tickets",
+    "variant": "booking",
+    "policy": "BY (book_ref)",
+    "load_ms": 408.42858299947693,
+    "fingerprint": {
+      "rows": 2949857,
+      "hash_sum_1": "306399042675893404487",
+      "hash_sum_2": "-399806039939317153731"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 1475806,
+      "1": 1474051
+    },
+    "min": 1474051,
+    "max": 1475806,
+    "mean": 1474928.5,
+    "max_avg": 1.0005949440939002,
+    "cv_population": 0.000594944093900145,
+    "cv_sample_pct": 0.08413780064473571
+  },
+  {
+    "group": "tickets",
+    "variant": "random",
+    "policy": "RANDOMLY",
+    "load_ms": 536.0315009993428,
+    "fingerprint": {
+      "rows": 2949857,
+      "hash_sum_1": "306399042675893404487",
+      "hash_sum_2": "-399806039939317153731"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 1474225,
+      "1": 1475632
+    },
+    "min": 1474225,
+    "max": 1475632,
+    "mean": 1474928.5,
+    "max_avg": 1.0004769722735711,
+    "cv_population": 0.00047697227357122734,
+    "cv_sample_pct": 0.06745406581603598
+  },
+  {
+    "group": "tickets",
+    "variant": "ticket",
+    "policy": "BY (ticket_no)",
+    "load_ms": 383.1560830003582,
+    "fingerprint": {
+      "rows": 2949857,
+      "hash_sum_1": "306399042675893404487",
+      "hash_sum_2": "-399806039939317153731"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 1473849,
+      "1": 1476008
+    },
+    "min": 1473849,
+    "max": 1476008,
+    "mean": 1474928.5,
+    "max_avg": 1.0007318998853165,
+    "cv_population": 0.0007318998853164747,
+    "cv_sample_pct": 0.10350627441138713
+  },
+  {
+    "group": "reference",
+    "variant": "hash",
+    "policy": "BY (airport_code)",
+    "load_ms": 13.463458000842365,
+    "fingerprint": {
+      "rows": 104,
+      "hash_sum_1": "-5364722639431435364",
+      "hash_sum_2": "1586954813912009794"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 56,
+      "1": 48
+    },
+    "min": 48,
+    "max": 56,
+    "mean": 52,
+    "max_avg": 1.0769230769230769,
+    "cv_population": 0.07692307692307693,
+    "cv_sample_pct": 10.878565864408424
+  },
+  {
+    "group": "reference",
+    "variant": "random",
+    "policy": "RANDOMLY",
+    "load_ms": 12.575165999805904,
+    "fingerprint": {
+      "rows": 104,
+      "hash_sum_1": "-5364722639431435364",
+      "hash_sum_2": "1586954813912009794"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 60,
+      "1": 44
+    },
+    "min": 44,
+    "max": 60,
+    "mean": 52,
+    "max_avg": 1.1538461538461537,
+    "cv_population": 0.15384615384615385,
+    "cv_sample_pct": 21.757131728816848
+  },
+  {
+    "group": "reference",
+    "variant": "replicated",
+    "policy": "REPLICATED",
+    "load_ms": 7.094499999766413,
+    "fingerprint": {
+      "rows": 104,
+      "hash_sum_1": "-5364722639431435364",
+      "hash_sum_2": "1586954813912009794"
+    },
+    "physical_rows_include_replicas": true,
+    "counts": {
+      "0": 104,
+      "1": 104
+    },
+    "min": 104,
+    "max": 104,
+    "mean": 104,
+    "max_avg": 1.0,
+    "cv_population": 0.0,
+    "cv_sample_pct": 0.0
+  },
+  {
+    "group": "rates",
+    "variant": "replicated",
+    "policy": "REPLICATED",
+    "load_ms": 11.451291000412311,
+    "fingerprint": {
+      "rows": 90,
+      "hash_sum_1": "-53320684639545575244",
+      "hash_sum_2": "-72412206272439758103"
+    },
+    "physical_rows_include_replicas": true,
+    "counts": {
+      "0": 90,
+      "1": 90
+    },
+    "min": 90,
+    "max": 90,
+    "mean": 90,
+    "max_avg": 1.0,
+    "cv_population": 0.0,
+    "cv_sample_pct": 0.0
+  },
+  {
+    "group": "rates",
+    "variant": "random",
+    "policy": "RANDOMLY",
+    "load_ms": 11.045583999475639,
+    "fingerprint": {
+      "rows": 90,
+      "hash_sum_1": "-53320684639545575244",
+      "hash_sum_2": "-72412206272439758103"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 43,
+      "1": 47
+    },
+    "min": 43,
+    "max": 47,
+    "mean": 45,
+    "max_avg": 1.0444444444444445,
+    "cv_population": 0.044444444444444446,
+    "cv_sample_pct": 6.285393610547089
+  },
+  {
+    "group": "rates",
+    "variant": "currency",
+    "policy": "BY (currency_code)",
+    "load_ms": 8.757417000197165,
+    "fingerprint": {
+      "rows": 90,
+      "hash_sum_1": "-53320684639545575244",
+      "hash_sum_2": "-72412206272439758103"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 30,
+      "1": 60
+    },
+    "min": 30,
+    "max": 60,
+    "mean": 45,
+    "max_avg": 1.3333333333333333,
+    "cv_population": 0.3333333333333333,
+    "cv_sample_pct": 47.14045207910317
+  },
+  {
+    "group": "rates",
+    "variant": "composite",
+    "policy": "BY (request_date,currency_code)",
+    "load_ms": 14.207250000254135,
+    "fingerprint": {
+      "rows": 90,
+      "hash_sum_1": "-53320684639545575244",
+      "hash_sum_2": "-72412206272439758103"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 51,
+      "1": 39
+    },
+    "min": 39,
+    "max": 51,
+    "mean": 45,
+    "max_avg": 1.1333333333333333,
+    "cv_population": 0.13333333333333333,
+    "cv_sample_pct": 18.856180831641264
+  },
+  {
+    "group": "daily",
+    "variant": "random",
+    "policy": "RANDOMLY",
+    "load_ms": 80.05920800042077,
+    "fingerprint": {
+      "rows": 178437,
+      "hash_sum_1": "4250260390625918517097",
+      "hash_sum_2": "2784779984672228713478"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 88923,
+      "1": 89514
+    },
+    "min": 88923,
+    "max": 89514,
+    "mean": 89218.5,
+    "max_avg": 1.0033120933438693,
+    "cv_population": 0.003312093343869265,
+    "cv_sample_pct": 0.46840073267455695
+  },
+  {
+    "group": "daily",
+    "variant": "composite",
+    "policy": "BY (flight_date,departure_airport,arrival_airport)",
+    "load_ms": 72.53199999922799,
+    "fingerprint": {
+      "rows": 178437,
+      "hash_sum_1": "4250260390625918517097",
+      "hash_sum_2": "2784779984672228713478"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 89429,
+      "1": 89008
+    },
+    "min": 89008,
+    "max": 89429,
+    "mean": 89218.5,
+    "max_avg": 1.002359376138357,
+    "cv_population": 0.002359376138356955,
+    "cv_sample_pct": 0.33366617336038656
+  },
+  {
+    "group": "daily",
+    "variant": "airport",
+    "policy": "BY (departure_airport)",
+    "load_ms": 55.32945800041489,
+    "fingerprint": {
+      "rows": 178437,
+      "hash_sum_1": "4250260390625918517097",
+      "hash_sum_2": "2784779984672228713478"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 113652,
+      "1": 64785
+    },
+    "min": 64785,
+    "max": 113652,
+    "mean": 89218.5,
+    "max_avg": 1.2738613628339415,
+    "cv_population": 0.2738613628339414,
+    "cv_sample_pct": 38.7298453529739
+  },
+  {
+    "group": "daily",
+    "variant": "date",
+    "policy": "BY (flight_date)",
+    "load_ms": 69.76995900004113,
+    "fingerprint": {
+      "rows": 178437,
+      "hash_sum_1": "4250260390625918517097",
+      "hash_sum_2": "2784779984672228713478"
+    },
+    "physical_rows_include_replicas": false,
+    "counts": {
+      "0": 94933,
+      "1": 83504
+    },
+    "min": 83504,
+    "max": 94933,
+    "mean": 89218.5,
+    "max_avg": 1.064050617304707,
+    "cv_population": 0.06405061730470699,
+    "cv_sample_pct": 9.058125167068548
+  },
+  {
+    "group": "partition",
+    "variant": "flat",
+    "policy": "BY (ticket_no)",
+    "load_ms": 2347.933168000054,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-1287085982479020980836",
+      "hash_sum_2": "-2682026494373406298325"
+    },
+    "counts": {
+      "0": 4192684,
+      "1": 4199168
+    },
+    "min": 4192684,
+    "max": 4199168,
+    "mean": 4195926,
+    "max_avg": 1.000772654236514,
+    "cv_population": 0.0007726542365141806,
+    "cv_sample_pct": 0.10926981003033835
+  },
+  {
+    "group": "partition",
+    "variant": "monthly",
+    "policy": "BY (ticket_no)",
+    "load_ms": 2772.3112920002677,
+    "fingerprint": {
+      "rows": 8391852,
+      "hash_sum_1": "-1287085982479020980836",
+      "hash_sum_2": "-2682026494373406298325"
+    },
+    "counts": {
+      "0": 4192684,
+      "1": 4199168
+    },
+    "min": 4192684,
+    "max": 4199168,
+    "mean": 4195926,
+    "max_avg": 1.000772654236514,
+    "cv_population": 0.0007726542365141806,
+    "cv_sample_pct": 0.10926981003033835
+  }
+]

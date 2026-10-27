@@ -1,0 +1,29 @@
+[
+  {
+    "probe": "compatible_primary_key",
+    "accepted": true,
+    "sql": "CREATE TABLE stage5_work.cap_probe (id integer,k integer,PRIMARY KEY(id,k)) DISTRIBUTED BY (k)"
+  },
+  {
+    "probe": "incompatible_primary_key",
+    "accepted": false,
+    "sql": "CREATE TABLE stage5_work.cap_probe (id integer PRIMARY KEY,k integer) DISTRIBUTED BY (k)",
+    "sqlstate": "42P16",
+    "error": "PRIMARY KEY and DISTRIBUTED BY definitions are incompatible"
+  },
+  {
+    "probe": "random_heap",
+    "accepted": true,
+    "sql": "CREATE TABLE stage5_work.cap_probe (id integer,k integer) DISTRIBUTED RANDOMLY"
+  },
+  {
+    "probe": "replicated_heap",
+    "accepted": true,
+    "sql": "CREATE TABLE stage5_work.cap_probe (id integer,k integer) DISTRIBUTED REPLICATED"
+  },
+  {
+    "probe": "replicated_aoco",
+    "accepted": true,
+    "sql": "CREATE TABLE stage5_work.cap_probe (id integer,k integer) WITH (appendoptimized=true,orientation=column,compresstype=zstd) DISTRIBUTED REPLICATED"
+  }
+]

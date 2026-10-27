@@ -1,0 +1,9 @@
+NAME                                            IMAGE                                      COMMAND                  SERVICE             CREATED             STATUS                       PORTS
+distributed-data-platform-airflow-init-1        distributed-data-platform-airflow:2.11.2   "/bin/bash -c 'pytho…"   airflow-init        58 minutes ago      Exited (0) 58 minutes ago
+distributed-data-platform-airflow-scheduler-1   distributed-data-platform-airflow:2.11.2   "/usr/bin/dumb-init …"   airflow-scheduler   58 minutes ago      Up 58 minutes (healthy)      8080/tcp
+distributed-data-platform-airflow-webserver-1   distributed-data-platform-airflow:2.11.2   "/usr/bin/dumb-init …"   airflow-webserver   58 minutes ago      Up 58 minutes (healthy)      0.0.0.0:8080->8080/tcp
+distributed-data-platform-greenplum-1           andruche/greenplum:7                       "/entrypoint.sh"         greenplum           About an hour ago   Up 49 minutes (healthy)      0.0.0.0:5434->5432/tcp
+distributed-data-platform-greenplum-init-1      andruche/greenplum:7                       "/bin/bash -c 'sourc…"   greenplum-init      About an hour ago   Exited (0) 58 minutes ago
+distributed-data-platform-minio-1               pgsty/minio:RELEASE.2026-08-04T00-00-00Z   "/usr/bin/docker-ent…"   minio               About an hour ago   Up About an hour             0.0.0.0:9000-9001->9000-9001/tcp
+distributed-data-platform-postgres-airflow-1    postgres:16.15                             "docker-entrypoint.s…"   postgres-airflow    About an hour ago   Up About an hour (healthy)   5432/tcp
+distributed-data-platform-postgres-source-1     postgres:16.15                             "docker-entrypoint.s…"   postgres-source     About an hour ago   Up About an hour (healthy)   0.0.0.0:5433->5432/tcp
