@@ -1,0 +1,9 @@
+ application_name |   state   | sync_state | sent_lsn  | flush_lsn | replay_lsn
+------------------+-----------+------------+-----------+-----------+------------
+ gp_walreceiver   | streaming | sync       | 0/C018B90 | 0/C018B90 | 0/C018B90
+(1 row)
+
+ application_name |   state   | sync_state | sent_lsn  | flush_lsn | replay_lsn
+------------------+-----------+------------+-----------+-----------+------------
+ gp_walreceiver   | streaming | sync       | 0/C018B90 | 0/C018B90 | 0/C018B90
+(1 row)

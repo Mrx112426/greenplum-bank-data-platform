@@ -1,0 +1,21 @@
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Starting gpstate with args: -m
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--------------------------------------------------------------
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--Current GPDB mirror list and status
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--Type = Group
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--------------------------------------------------------------
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   Mirror      Datadir                Port   Status    Data Status
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   localhost   /data/mirror1/gpsne0   7000   Passive   Synchronized
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-   localhost   /data/mirror2/gpsne1   7001   Passive   Synchronized
+20261027:11:21:09:001589 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:--------------------------------------------------------------
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Starting gpstate with args: -e
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Gathering data from segments...
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-Segment Mirroring Status Report
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:21:09:001581 gpstate:96ae3b8a5e3d:gpadmin-[INFO]:-All segments are running normally

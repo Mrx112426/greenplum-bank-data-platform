@@ -1,0 +1,379 @@
+10001|50015001|56bf4e0b85f489cfa41b201a792f7aa4
+0|5014
+1|4987
+0|2|p|p|s|u|localhost|6000|/data/data1/gpsne0
+0|4|m|m|s|u|localhost|7000|/data/mirror1/gp0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gp1
+Stopping only content=0 primary dbid=2 port=6000 datadir=/data/data1/gpsne0; mirror dbid=4
+waiting for server to shut down.... done
+server stopped
+0|2|m|p|n|d|localhost|6000|/data/data1/gpsne0
+0|4|p|m|n|u|localhost|7000|/data/mirror1/gp0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gp1
+10001|50015001|56bf4e0b85f489cfa41b201a792f7aa4
+0|5014
+1|4987
+INSERT 0 0
+10001|50015001|56bf4e0b85f489cfa41b201a792f7aa4
+0|5014
+1|4987
+PASS: original primary down, former mirror active, SELECT and INSERT succeeded.
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Starting gprecoverseg with args: -a
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully finished pg_controldata /data/mirror1/gp0 for dbid 4:
+stdout: pg_control version number:            12010700
+Catalog version number:               302307241
+Database system identifier:           7595657425161009107
+Database cluster state:               in production
+pg_control last modified:             Tue Oct 27 11:46:58 2026
+Latest checkpoint location:           0/C13EAE8
+Latest checkpoint's REDO location:    0/C13EA78
+Latest checkpoint's REDO WAL file:    000000060000000000000003
+Latest checkpoint's TimeLineID:       6
+Latest checkpoint's PrevTimeLineID:   6
+Latest checkpoint's full_page_writes: on
+Latest checkpoint's NextXID:          0:548
+Latest checkpoint's NextGxid:         17
+Latest checkpoint's NextOID:          25223
+Latest checkpoint's NextRelfilenode:  32775
+Latest checkpoint's NextMultiXactId:  1
+Latest checkpoint's NextMultiOffset:  0
+Latest checkpoint's oldestXID:        529
+Latest checkpoint's oldestXID's DB:   13719
+Latest checkpoint's oldestActiveXID:  548
+Latest checkpoint's oldestMultiXid:   1
+Latest checkpoint's oldestMulti's DB: 13720
+Latest checkpoint's oldestCommitTsXid:0
+Latest checkpoint's newestCommitTsXid:0
+Time of latest checkpoint:            Tue Oct 27 11:46:58 2026
+Fake LSN counter for unlogged rels:   0/3E8
+Minimum recovery ending location:     0/0
+Min recovery ending loc's timeline:   0
+Backup start location:                0/0
+Backup end location:                  0/0
+End-of-backup record required:        no
+wal_level setting:                    replica
+wal_log_hints setting:                off
+max_connections setting:              750
+max_worker_processes setting:         12
+max_wal_senders setting:              10
+max_prepared_xacts setting:           250
+max_locks_per_xact setting:           128
+track_commit_timestamp setting:       off
+Maximum data alignment:               8
+Database block size:                  32768
+Blocks per segment of large relation: 32768
+WAL block size:                       32768
+Bytes per WAL segment:                67108864
+Maximum length of identifiers:        64
+Maximum columns in an index:          32
+Maximum size of a TOAST chunk:        8140
+Size of a large-object chunk:         8192
+Date/time type storage:               64-bit integers
+Float4 argument passing:              by value
+Float8 argument passing:              by value
+Data page checksum version:           1
+Mock authentication nonce:            3e9488709041f26a03701f9cddb98ca075015220400ece831c3d463dbc02a52c
+
+stderr:
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully finished pg_controldata /data/data1/gpsne0 for dbid 2:
+stdout: pg_control version number:            12010700
+Catalog version number:               302307241
+Database system identifier:           7595657425161009107
+Database cluster state:               in production
+pg_control last modified:             Tue Oct 27 11:26:01 2026
+Latest checkpoint location:           0/C13E988
+Latest checkpoint's REDO location:    0/C13E950
+Latest checkpoint's REDO WAL file:    000000050000000000000003
+Latest checkpoint's TimeLineID:       5
+Latest checkpoint's PrevTimeLineID:   5
+Latest checkpoint's full_page_writes: on
+Latest checkpoint's NextXID:          0:548
+Latest checkpoint's NextGxid:         19
+Latest checkpoint's NextOID:          25223
+Latest checkpoint's NextRelfilenode:  32775
+Latest checkpoint's NextMultiXactId:  1
+Latest checkpoint's NextMultiOffset:  0
+Latest checkpoint's oldestXID:        529
+Latest checkpoint's oldestXID's DB:   13719
+Latest checkpoint's oldestActiveXID:  548
+Latest checkpoint's oldestMultiXid:   1
+Latest checkpoint's oldestMulti's DB: 13720
+Latest checkpoint's oldestCommitTsXid:0
+Latest checkpoint's newestCommitTsXid:0
+Time of latest checkpoint:            Tue Oct 27 11:26:01 2026
+Fake LSN counter for unlogged rels:   0/3E8
+Minimum recovery ending location:     0/0
+Min recovery ending loc's timeline:   0
+Backup start location:                0/0
+Backup end location:                  0/0
+End-of-backup record required:        no
+wal_level setting:                    replica
+wal_log_hints setting:                off
+max_connections setting:              750
+max_worker_processes setting:         12
+max_wal_senders setting:              10
+max_prepared_xacts setting:           250
+max_locks_per_xact setting:           128
+track_commit_timestamp setting:       off
+Maximum data alignment:               8
+Database block size:                  32768
+Blocks per segment of large relation: 32768
+WAL block size:                       32768
+Bytes per WAL segment:                67108864
+Maximum length of identifiers:        64
+Maximum columns in an index:          32
+Maximum size of a TOAST chunk:        8140
+Size of a large-object chunk:         8192
+Date/time type storage:               64-bit integers
+Float4 argument passing:              by value
+Float8 argument passing:              by value
+Data page checksum version:           1
+Mock authentication nonce:            3e9488709041f26a03701f9cddb98ca075015220400ece831c3d463dbc02a52c
+
+stderr:
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Heap checksum setting is consistent between coordinator and the segments that are candidates for recoverseg
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Greenplum instance recovery parameters
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Recovery type              = Standard
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Recovery 1 of 1
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Synchronization mode                 = Incremental
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance host                 = localhost
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance address              = localhost
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance directory            = /data/data1/gpsne0
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance port                 = 6000
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance host        = localhost
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance address     = localhost
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance directory   = /data/mirror1/gp0
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance port        = 7000
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Target                      = in-place
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:00:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Starting to create new pg_hba.conf on primary segments
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-killing existing walsender process on primary localhost:7000 to refresh replication connection
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully modified pg_hba.conf on primary segments to allow replication connections
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-1 segment(s) to recover
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Ensuring 1 failed segment(s) are stopped
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Setting up the required segments for recovery
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Updating configuration for mirrors
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Initiating segment recovery. Upon completion, will start the successfully recovered segments
+20261027:11:47:01:007810 gprecoverseg:localhost:gpadmin-[INFO]:-era is e05c6994c5618007_261027111815
+localhost (dbid 2):      0/482245 kB (0%) copied
+localhost (dbid 2): pg_rewind: syncing target data directory
+localhost (dbid 2): pg_rewind: Done!
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Triggering FTS probe
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-********************************
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Segments successfully recovered.
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-********************************
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Recovered mirror segments need to sync WAL with primary segments.
+20261027:11:47:04:007810 gprecoverseg:localhost:gpadmin-[INFO]:-Use 'gpstate -e' to check progress of WAL sync remaining bytes
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Starting gprecoverseg with args: -a -r
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Greenplum instance recovery parameters
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Recovery type              = Rebalance
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Unbalanced segment 1 of 2
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance host        = localhost
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance address     = localhost
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance directory   = /data/mirror1/gp0
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance port        = 7000
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Balanced role                   = Mirror
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Current role                    = Primary
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Unbalanced segment 2 of 2
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance host        = localhost
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance address     = localhost
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance directory   = /data/data1/gpsne0
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Unbalanced instance port        = 6000
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Balanced role                   = Primary
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Current role                    = Mirror
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Determining primary and mirror segment pairs to rebalance
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Allowed replay lag during rebalance is 10 GB
+20261027:11:47:05:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Stopping unbalanced primary segments...
+.
+20261027:11:47:07:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Triggering segment reconfiguration
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Starting segment synchronization
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-=============================START ANOTHER RECOVER=========================================
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully finished pg_controldata /data/data1/gpsne0 for dbid 2:
+stdout: pg_control version number:            12010700
+Catalog version number:               302307241
+Database system identifier:           7595657425161009107
+Database cluster state:               in production
+pg_control last modified:             Tue Oct 27 11:47:12 2026
+Latest checkpoint location:           0/C13E988
+Latest checkpoint's REDO location:    0/C13E950
+Latest checkpoint's REDO WAL file:    000000050000000000000003
+Latest checkpoint's TimeLineID:       5
+Latest checkpoint's PrevTimeLineID:   5
+Latest checkpoint's full_page_writes: on
+Latest checkpoint's NextXID:          0:551
+Latest checkpoint's NextGxid:         19
+Latest checkpoint's NextOID:          25223
+Latest checkpoint's NextRelfilenode:  32775
+Latest checkpoint's NextMultiXactId:  1
+Latest checkpoint's NextMultiOffset:  0
+Latest checkpoint's oldestXID:        529
+Latest checkpoint's oldestXID's DB:   13719
+Latest checkpoint's oldestActiveXID:  548
+Latest checkpoint's oldestMultiXid:   1
+Latest checkpoint's oldestMulti's DB: 13720
+Latest checkpoint's oldestCommitTsXid:0
+Latest checkpoint's newestCommitTsXid:0
+Time of latest checkpoint:            Tue Oct 27 11:26:01 2026
+Fake LSN counter for unlogged rels:   0/3E8
+Minimum recovery ending location:     0/C155088
+Min recovery ending loc's timeline:   7
+Backup start location:                0/0
+Backup end location:                  0/0
+End-of-backup record required:        no
+wal_level setting:                    replica
+wal_log_hints setting:                off
+max_connections setting:              750
+max_worker_processes setting:         12
+max_wal_senders setting:              10
+max_prepared_xacts setting:           250
+max_locks_per_xact setting:           128
+track_commit_timestamp setting:       off
+Maximum data alignment:               8
+Database block size:                  32768
+Blocks per segment of large relation: 32768
+WAL block size:                       32768
+Bytes per WAL segment:                67108864
+Maximum length of identifiers:        64
+Maximum columns in an index:          32
+Maximum size of a TOAST chunk:        8140
+Size of a large-object chunk:         8192
+Date/time type storage:               64-bit integers
+Float4 argument passing:              by value
+Float8 argument passing:              by value
+Data page checksum version:           1
+Mock authentication nonce:            3e9488709041f26a03701f9cddb98ca075015220400ece831c3d463dbc02a52c
+
+stderr:
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully finished pg_controldata /data/mirror1/gp0 for dbid 4:
+stdout: pg_control version number:            12010700
+Catalog version number:               302307241
+Database system identifier:           7595657425161009107
+Database cluster state:               shut down
+pg_control last modified:             Tue Oct 27 11:47:05 2026
+Latest checkpoint location:           0/C154FD0
+Latest checkpoint's REDO location:    0/C154FD0
+Latest checkpoint's REDO WAL file:    000000060000000000000003
+Latest checkpoint's TimeLineID:       6
+Latest checkpoint's PrevTimeLineID:   6
+Latest checkpoint's full_page_writes: on
+Latest checkpoint's NextXID:          0:551
+Latest checkpoint's NextGxid:         21
+Latest checkpoint's NextOID:          25230
+Latest checkpoint's NextRelfilenode:  32778
+Latest checkpoint's NextMultiXactId:  1
+Latest checkpoint's NextMultiOffset:  0
+Latest checkpoint's oldestXID:        529
+Latest checkpoint's oldestXID's DB:   13719
+Latest checkpoint's oldestActiveXID:  0
+Latest checkpoint's oldestMultiXid:   1
+Latest checkpoint's oldestMulti's DB: 13720
+Latest checkpoint's oldestCommitTsXid:0
+Latest checkpoint's newestCommitTsXid:0
+Time of latest checkpoint:            Tue Oct 27 11:47:05 2026
+Fake LSN counter for unlogged rels:   0/3E8
+Minimum recovery ending location:     0/0
+Min recovery ending loc's timeline:   0
+Backup start location:                0/0
+Backup end location:                  0/0
+End-of-backup record required:        no
+wal_level setting:                    replica
+wal_log_hints setting:                off
+max_connections setting:              750
+max_worker_processes setting:         12
+max_wal_senders setting:              10
+max_prepared_xacts setting:           250
+max_locks_per_xact setting:           128
+track_commit_timestamp setting:       off
+Maximum data alignment:               8
+Database block size:                  32768
+Blocks per segment of large relation: 32768
+WAL block size:                       32768
+Bytes per WAL segment:                67108864
+Maximum length of identifiers:        64
+Maximum columns in an index:          32
+Maximum size of a TOAST chunk:        8140
+Size of a large-object chunk:         8192
+Date/time type storage:               64-bit integers
+Float4 argument passing:              by value
+Float8 argument passing:              by value
+Data page checksum version:           1
+Mock authentication nonce:            3e9488709041f26a03701f9cddb98ca075015220400ece831c3d463dbc02a52c
+
+stderr:
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Heap checksum setting is consistent between coordinator and the segments that are candidates for recoverseg
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Greenplum instance recovery parameters
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Recovery type              = Standard
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Recovery 1 of 1
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Synchronization mode                 = Incremental
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance host                 = localhost
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance address              = localhost
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance directory            = /data/mirror1/gp0
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Failed instance port                 = 7000
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance host        = localhost
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance address     = localhost
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance directory   = /data/data1/gpsne0
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Source instance port        = 6000
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-   Recovery Target                      = in-place
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:----------------------------------------------------------
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Starting to create new pg_hba.conf on primary segments
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-killing existing walsender process on primary localhost:6000 to refresh replication connection
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Successfully modified pg_hba.conf on primary segments to allow replication connections
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-1 segment(s) to recover
+20261027:11:47:14:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Ensuring 1 failed segment(s) are stopped
+20261027:11:47:15:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Setting up the required segments for recovery
+20261027:11:47:15:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Updating configuration for mirrors
+20261027:11:47:15:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Initiating segment recovery. Upon completion, will start the successfully recovered segments
+20261027:11:47:15:008145 gprecoverseg:localhost:gpadmin-[INFO]:-era is e05c6994c5618007_261027111815
+localhost (dbid 4): pg_rewind: no rewind required
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Triggering FTS probe
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-********************************
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Segments successfully recovered.
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-********************************
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Recovered mirror segments need to sync WAL with primary segments.
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-Use 'gpstate -e' to check progress of WAL sync remaining bytes
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-==============================END ANOTHER RECOVER==========================================
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-******************************************************************
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-The rebalance operation has completed successfully.
+20261027:11:47:16:008145 gprecoverseg:localhost:gpadmin-[INFO]:-******************************************************************
+10001|50015001|56bf4e0b85f489cfa41b201a792f7aa4
+0|5014
+1|4987
+0|2|p|p|s|u|localhost|6000|/data/data1/gpsne0
+0|4|m|m|s|u|localhost|7000|/data/mirror1/gp0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gp1
+test_fault_requires_isolation_and_explicit_flag (__main__.ReplicationTests.test_fault_requires_isolation_and_explicit_flag) ... ok
+test_fixture_integrity (__main__.ReplicationTests.test_fixture_integrity) ... ok
+test_pairs_and_sync (__main__.ReplicationTests.test_pairs_and_sync) ... ok
+test_preferred_roles_restored (__main__.ReplicationTests.test_preferred_roles_restored) ... ok
+test_setup_idempotency (__main__.ReplicationTests.test_setup_idempotency) ... ok
+test_two_mirrors (__main__.ReplicationTests.test_two_mirrors) ... ok
+test_two_primary (__main__.ReplicationTests.test_two_primary) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.405s
+
+OK
