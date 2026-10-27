@@ -1,0 +1,20 @@
+# Isolated process-failure laboratory. No platform network or published ports.
+name: greenplum-replication-lab
+services:
+  greenplum:
+    image: andruche/greenplum:7
+    hostname: localhost
+    labels:
+      org.greenplum-bank.replication-lab: "true"
+    volumes:
+      - replication-data:/data
+    shm_size: 1gb
+    stop_grace_period: 120s
+    healthcheck:
+      test: [CMD-SHELL, /usr/local/gpdb/bin/pg_isready -h localhost -U gpadmin -d postgres]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+      start_period: 30s
+volumes:
+  replication-data:

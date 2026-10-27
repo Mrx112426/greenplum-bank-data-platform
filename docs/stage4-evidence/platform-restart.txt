@@ -1,0 +1,37 @@
+0|2|p|p|s|u|localhost|6000|/data/data1/gpsne0
+0|4|m|m|s|u|localhost|7000|/data/mirror1/gpsne0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gpsne1
+PASS: two primary, two mirrors, matching contents, status=u, mode=s.
+ Container distributed-data-platform-greenplum-1  Restarting
+ Container distributed-data-platform-greenplum-1  Started
+ Container distributed-data-platform-greenplum-1  Running
+ Container distributed-data-platform-greenplum-1  Waiting
+ Container distributed-data-platform-greenplum-1  Healthy
+0|2|p|p|s|u|localhost|6000|/data/data1/gpsne0
+0|4|m|m|s|u|localhost|7000|/data/mirror1/gpsne0
+1|3|p|p|s|u|localhost|6001|/data/data2/gpsne1
+1|5|m|m|s|u|localhost|7001|/data/mirror2/gpsne1
+PASS: two primary, two mirrors, matching contents, status=u, mode=s.
+core|aircrafts|9
+core|airports|104
+core|boarding_passes|7925812
+core|bookings|2111110
+core|flights|214867
+core|seats|1339
+core|ticket_flights|8391852
+core|tickets|2949857
+staging|aircrafts|9
+staging|airports|104
+staging|boarding_passes|7925812
+staging|bookings|2111110
+staging|flights|214867
+staging|seats|1339
+staging|ticket_flights|8391852
+staging|tickets|2949857
+core|167409059100.00
+dm|167409059100.00
+staging|167409059100.00
+core|167409059100.00
+dm|167409059100.00
+staging|167409059100.00

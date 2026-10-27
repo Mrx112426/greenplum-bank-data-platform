@@ -1,0 +1,11 @@
+ Container distributed-data-platform-postgres-source-1  Running
+Database demo already exists; checking it without reimport.
+aircrafts : 9
+airports : 104
+seats : 1339
+flights : 214867
+bookings : 2111110
+tickets : 2949857
+boarding_passes : 7925812
+ticket_flights : 8391852
+PASS: eight tables, 21 594 950 rows.

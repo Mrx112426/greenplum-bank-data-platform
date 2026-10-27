@@ -1,0 +1,7 @@
+ schema_name
+-------------
+ core
+ dm
+ dq
+ staging
+(4 rows)

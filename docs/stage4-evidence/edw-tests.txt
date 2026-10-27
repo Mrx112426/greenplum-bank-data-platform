@@ -1,0 +1,52 @@
+/home/airflow/.local/lib/python3.11/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.11/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-10-27T11:38:16.639+0000] {base.py:84} INFO - Retrieving connection 'greenplum_dwh'
+test_quarantine_marts_idempotency_and_rollback (__main__.GreenplumTests.test_quarantine_marts_idempotency_and_rollback) ... [2026-10-27T11:38:16.666+0000] {base.py:84} INFO - Retrieving connection 'greenplum_dwh'
+[2026-10-27T11:38:16.977+0000] {runtime.py:94} INFO - DQ PASS layer=core table=aircrafts check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.040+0000] {runtime.py:94} INFO - DQ PASS layer=core table=airports check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.103+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=bookings check=quarantined_rows failed_rows=3 details={"source": 4, "accepted": 1, "rejected": 3}
+[2026-10-27T11:38:17.134+0000] {runtime.py:94} INFO - DQ PASS layer=core table=seats check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.218+0000] {runtime.py:94} INFO - DQ PASS layer=core table=flights check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.253+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=tickets check=quarantined_rows failed_rows=1 details={"source": 3, "accepted": 2, "rejected": 1}
+[2026-10-27T11:38:17.284+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=ticket_flights check=quarantined_rows failed_rows=1 details={"source": 4, "accepted": 3, "rejected": 1}
+[2026-10-27T11:38:17.351+0000] {runtime.py:94} INFO - DQ PASS layer=core table=boarding_passes check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.379+0000] {runtime.py:94} INFO - DQ PASS layer=core table=exchange_rates check=quarantined_rows failed_rows=0 details={"source": 3, "accepted": 3, "rejected": 0}
+[2026-10-27T11:38:17.423+0000] {runtime.py:94} INFO - DQ PASS layer=core table=aircrafts check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.439+0000] {runtime.py:94} INFO - DQ PASS layer=core table=airports check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.460+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=bookings check=quarantined_rows failed_rows=3 details={"source": 4, "accepted": 1, "rejected": 3}
+[2026-10-27T11:38:17.477+0000] {runtime.py:94} INFO - DQ PASS layer=core table=seats check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.525+0000] {runtime.py:94} INFO - DQ PASS layer=core table=flights check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.552+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=tickets check=quarantined_rows failed_rows=1 details={"source": 3, "accepted": 2, "rejected": 1}
+[2026-10-27T11:38:17.580+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=ticket_flights check=quarantined_rows failed_rows=1 details={"source": 4, "accepted": 3, "rejected": 1}
+[2026-10-27T11:38:17.637+0000] {runtime.py:94} INFO - DQ PASS layer=core table=boarding_passes check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.662+0000] {runtime.py:94} INFO - DQ PASS layer=core table=exchange_rates check=quarantined_rows failed_rows=0 details={"source": 3, "accepted": 3, "rejected": 0}
+[2026-10-27T11:38:17.808+0000] {runtime.py:94} INFO - DQ PASS layer=core table=aircrafts check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.824+0000] {runtime.py:94} INFO - DQ PASS layer=core table=airports check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.849+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=bookings check=quarantined_rows failed_rows=3 details={"source": 4, "accepted": 1, "rejected": 3}
+[2026-10-27T11:38:17.865+0000] {runtime.py:94} INFO - DQ PASS layer=core table=seats check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:17.912+0000] {runtime.py:94} INFO - DQ PASS layer=core table=flights check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:17.938+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=tickets check=quarantined_rows failed_rows=1 details={"source": 3, "accepted": 2, "rejected": 1}
+[2026-10-27T11:38:17.978+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=ticket_flights check=quarantined_rows failed_rows=1 details={"source": 4, "accepted": 3, "rejected": 1}
+[2026-10-27T11:38:18.031+0000] {runtime.py:94} INFO - DQ PASS layer=core table=boarding_passes check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:18.054+0000] {runtime.py:94} INFO - DQ PASS layer=core table=exchange_rates check=quarantined_rows failed_rows=0 details={"source": 3, "accepted": 3, "rejected": 0}
+[2026-10-27T11:38:18.093+0000] {runtime.py:94} INFO - DQ PASS layer=core table=aircrafts check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:18.107+0000] {runtime.py:94} INFO - DQ PASS layer=core table=airports check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:18.128+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=bookings check=quarantined_rows failed_rows=3 details={"source": 4, "accepted": 1, "rejected": 3}
+[2026-10-27T11:38:18.144+0000] {runtime.py:94} INFO - DQ PASS layer=core table=seats check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:18.195+0000] {runtime.py:94} INFO - DQ PASS layer=core table=flights check=quarantined_rows failed_rows=0 details={"source": 2, "accepted": 2, "rejected": 0}
+[2026-10-27T11:38:18.222+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=tickets check=quarantined_rows failed_rows=1 details={"source": 3, "accepted": 2, "rejected": 1}
+[2026-10-27T11:38:18.259+0000] {runtime.py:94} WARNING - DQ WARN layer=core table=ticket_flights check=quarantined_rows failed_rows=1 details={"source": 4, "accepted": 3, "rejected": 1}
+[2026-10-27T11:38:18.312+0000] {runtime.py:94} INFO - DQ PASS layer=core table=boarding_passes check=quarantined_rows failed_rows=0 details={"source": 1, "accepted": 1, "rejected": 0}
+[2026-10-27T11:38:18.338+0000] {runtime.py:94} INFO - DQ PASS layer=core table=exchange_rates check=quarantined_rows failed_rows=0 details={"source": 3, "accepted": 3, "rejected": 0}
+[2026-10-27T11:38:18.374+0000] {base.py:84} INFO - Retrieving connection 'greenplum_dwh'
+ok
+test_date_windows (__main__.RatesTests.test_date_windows) ... ok
+test_decimal_precision_and_invalid_values (__main__.RatesTests.test_decimal_precision_and_invalid_values) ... ok
+test_empty_or_wrong_document (__main__.RatesTests.test_empty_or_wrong_document) ... ok
+test_nominal_and_effective_date (__main__.RatesTests.test_nominal_and_effective_date) ... ok
+test_test_database_guard (__main__.RatesTests.test_test_database_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.106s
+
+OK

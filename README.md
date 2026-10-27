@@ -118,7 +118,7 @@ DISTRIBUTED REPLICATED;
 
 ## Зеркалирование сегментов
 
-Для демонстрации отказоустойчивости в Greenplum используются primary- и mirror-сегменты. В проекте планируется показать имитацию отказа основного сегмента, переключение на зеркало и восстановление штатной конфигурации.
+Для демонстрации отказоустойчивости в Greenplum используются primary- и mirror-сегменты. На изолированном стенде проверены реальная остановка процесса primary, переключение на зеркало и восстановление штатной конфигурации; команды и доказательства приведены в этапе 4.
 
 Зеркалирование повышает доступность кластера, но не заменяет резервное копирование.
 
@@ -260,10 +260,12 @@ ETL-конвейер включает:
 
 **Контроль выполнения:**
 
-- [ ] развернуть mirror-сегменты Greenplum;
-- [ ] проверить синхронизацию primary- и mirror-сегментов;
-- [ ] смоделировать отказ primary-сегмента;
-- [ ] подтвердить переключение и доступность данных после отказа.
+- [x] развернуть mirror-сегменты Greenplum;
+- [x] проверить синхронизацию primary- и mirror-сегментов;
+- [x] смоделировать отказ primary-сегмента;
+- [x] подтвердить переключение и доступность данных после отказа;
+- [x] восстановить сегмент, синхронизацию и предпочтительные роли;
+- [x] проверить сохранение данных и зеркал после перезапуска.
 
 В локальной среде это функциональная демонстрация. В промышленной системе primary и mirror должны размещаться на разных физических серверах.
 
@@ -324,10 +326,16 @@ greenplum-bank-data-platform/
 |   |-- install-demo-db.ps1
 |   |-- run-edw.ps1
 |   `-- stop.ps1
+|-- scripts/replication/
+|   |-- run.sh
+|   `-- container.sh
+|-- tests/test_replication.py
+|-- tests/test_replication_fault.sh
 |-- tests/test_edw.py
 |-- docs/
 |-- .env.example
 |-- compose.yaml
+|-- compose.replication.yaml
 `-- README.md
 ```
 
@@ -385,13 +393,14 @@ ORDER BY gp_segment_id;
 - автоматическое создание базы `dwh` и схем `staging`, `core`, `dm`, `dq`;
 - диагностический DAG `platform_healthcheck`.
 
-MinIO хранит исходные файлы и внешние выгрузки, а табличные слои DWH размещаются в Greenplum. Локальный контейнер Greenplum содержит координатор и два primary-сегмента. Mirror-сегменты в текущую конфигурацию не входят: они будут добавлены отдельно на этапе демонстрации репликации.
+MinIO хранит исходные файлы и внешние выгрузки, а табличные слои DWH размещаются в Greenplum. Локальный контейнер Greenplum содержит координатор и два primary-сегмента. Зеркала добавляются отдельно командой этапа 4 без пересоздания Greenplum.
 
 Для локального стенда используется поддерживаемый community-форк `pgsty/minio`, поскольку распространение официальных community-образов MinIO прекращено. Он сохраняет совместимость с S3 API и привычными параметрами запуска MinIO.
 
 ### Требования
 
-- Windows 10 или Windows 11;
+- macOS (Apple Silicon или Intel), Linux либо Windows;
+- PowerShell 7 (`pwsh`) для существующих скриптов;
 - Docker Desktop с включенным Linux containers mode;
 - Docker Compose V2;
 - не менее 8 ГБ оперативной памяти, выделенной Docker Desktop;
@@ -402,7 +411,7 @@ MinIO хранит исходные файлы и внешние выгрузк�
 В PowerShell из корня репозитория:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
+pwsh -File ./scripts/start.ps1
 ```
 
 При первом запуске скрипт:
@@ -440,10 +449,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
 В качестве набора исходных данных можно установить демонстрационную базу Postgres Professional с данными о полетах за год. Она устанавливается в отдельную базу `demo` внутри `postgres-source`.
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\install-demo-db.ps1
+pwsh -File ./scripts/install-demo-db.ps1
 ```
 
-Скрипт скачивает архив около 232 МБ в локальный каталог `.cache`, импортирует `demo_big.sql` и проверяет количество рейсов и размер базы. Архив и сами данные не добавляются в Git. Повторный запуск пересоздает базу `demo`.
+Скрипт скачивает архив около 232 МБ в локальный каталог `.cache`, импортирует `demo_big.sql` и проверяет количество строк во всех восьми таблицах. Архив и сами данные не добавляются в Git. Повторный запуск проверяет существующую `demo` без повторного импорта. Используется совместимый архив `demo-big-20161013.zip`; ожидается 21 594 950 строк.
 
 | Параметр | Значение |
 |---|---|
@@ -465,14 +474,10 @@ docker compose ps
 Остановить платформу:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\stop.ps1
+pwsh -File ./scripts/stop.ps1
 ```
 
-Удалить контейнеры вместе с данными можно только при необходимости полного сброса среды:
-
-```powershell
-docker compose down --volumes
-```
+Остановка сохраняет именованные тома с данными. Не удаляйте их для повторного запуска.
 
 ## Этап 3. ETL и Data Quality
 
@@ -481,7 +486,7 @@ docker compose down --volumes
 После запуска инфраструктуры и установки базы `demo`:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run-edw.ps1
+pwsh -File ./scripts/run-edw.ps1
 ```
 
 Скрипт включает пять DAG и запускает `edw_pipeline`. Ход выполнения доступен в Airflow. При первом запуске автоматически создаются девять таблиц Staging, девять таблиц Core, четыре витрины DM и служебные таблицы DQ. Для двух больших таблиц и других фактов используется сжатое колоночное хранение Greenplum AOCO. Данные не передаются через XCom: PostgreSQL COPY использует временный файл с ограниченным буфером памяти, а для ЦБ через XCom передаются только пути и контрольные суммы объектов.
@@ -553,6 +558,75 @@ docker compose exec -T -e EDW_TEST_DATABASE=edw_stage3_test -e PYTHONPATH=/opt/a
 
 Проверяются точность курсов, различие дат запроса и действия курса, обработка пустого ответа, выбор интервала, карантин и распространение отклонения на зависимые строки, отсутствие умножения сумм бронирований, повторная загрузка и сохранение предыдущих дат, а также откат публикации.
 
+## Этап 4. Репликация Greenplum на macOS
+
+Технический отчёт с фактическими ролями, контрольными суммами и результатами отказа: [stage4-verification.md](docs/stage4-verification.md).
+
+### Подготовка Mac
+
+Проверьте `uname -m`, `sw_vers`, `sysctl -n hw.memsize`, `df -h .`, `docker version`, `docker compose version`, `docker info` и `pwsh --version`. Запустите Docker Desktop; выделите около 8 ГБ памяти или больше с учётом ресурсов Mac. Порты 5433, 5434, 8080, 9000, 9001 должны быть свободны. Чужие процессы останавливать не требуется.
+
+```bash
+docker buildx imagetools inspect andruche/greenplum:7
+docker compose config --quiet
+pwsh -File ./scripts/start.ps1
+```
+
+На Apple Silicon Docker автоматически выбирает ARM64; `platform: linux/amd64` не требуется. PowerShell устанавливайте [официальным способом Microsoft](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-macos). На проверенном Mac стабильный cask `powershell` отсутствовал: официальный архив 7.6.6 ARM64 распакован в игнорируемый `.cache/powershell`. Для этой локальной установки:
+
+```bash
+export PATH="$PWD/.cache/powershell:$PATH"
+pwsh --version
+```
+
+`start.ps1`, `stop.ps1`, `run-edw.ps1` работают через PowerShell 7; установщик demo использует системный `curl` с проверкой ошибок и временным `.partial`. Он отказывается автоматически заменять существующую несовместимую БД. Дождитесь завершения DAG после `pwsh -File ./scripts/run-edw.ps1`: успешный trigger ещё не означает успешный ETL.
+
+### Зеркала платформы
+
+На свободном от ETL стенде выполните:
+
+```bash
+bash scripts/replication/run.sh platform status
+bash scripts/replication/run.sh platform setup
+bash scripts/replication/run.sh platform check
+```
+
+Утилита `gpaddmirrors` генерирует конфигурацию для текущих primary: порты 6000/6001 → 7000/7001, каталоги платформы `/data/mirror1/gpsne0`, `/data/mirror2/gpsne1` (имена рассчитывает утилита). Все данные и каталог координатора остаются в существующем томе `/data`. Повторный setup проверяет две пары и не добавляет дубликаты. Частичная конфигурация требует диагностики. Не запускайте добавление зеркал одновременно с ETL. При переносе на другой образ/топологию сначала исследуйте его: скрипты проверены для текущего одноконтейнерного образа.
+
+### Демонстрация преподавателю
+
+Отказ выполняется **только в отдельном контейнере** с собственным томом, сетью и без опубликованных портов. Скрипт явно задаёт Compose project `greenplum-replication-lab`, чтобы `.env` платформы не влиял на изоляцию.
+
+```bash
+bash scripts/replication/run.sh lab up
+bash scripts/replication/run.sh lab setup
+bash scripts/replication/run.sh lab prepare
+bash scripts/replication/run.sh lab status
+python3 tests/test_replication.py
+# Явный отказ primary, проверка promotion/SELECT/INSERT и восстановление:
+bash tests/test_replication_fault.sh --inject-fault
+# Проверка сохранения конфигурации и данных после перезапуска:
+bash scripts/replication/run.sh lab restart
+```
+
+Обычные тесты не останавливают сегменты. Отказный тест вызывает `pg_ctl stop -m immediate` только для primary content=0, dbid=2, порт 6000. Он проверяет смену ролей в системном каталоге, прежние 10 000 строк и дополнительную запись 10001; затем автоматически выполняет `gprecoverseg -a`, ожидает синхронизации и возвращает предпочтительные роли через `gprecoverseg -a -r`. Повторные демонстрации используют ту же контрольную запись без дубликатов.
+
+При прерванном эксперименте восстановление и диагностика доступны отдельно:
+
+```bash
+bash scripts/replication/run.sh lab recover
+bash scripts/replication/run.sh lab status
+bash scripts/replication/run.sh lab check
+```
+
+Снимки конфигурации сохраняются внутри тома в `/data/replication-lab`. Для сохранения полного вывода на Mac сначала выполните `mkdir -p .cache`, затем используйте `2>&1 | tee .cache/stage4-demo.txt` (при автоматизации включайте `set -o pipefail`). После демонстрации можно освободить RAM, сохранив том:
+
+```bash
+docker compose -p greenplum-replication-lab -f compose.replication.yaml stop
+```
+
+Primary и mirror находятся на одном хосте и в одном контейнере. Это настоящая физическая репликация WAL Greenplum и демонстрация отказа процесса сегмента; защиты от потери контейнера, тома, диска или Mac такая топология не обеспечивает. Координатор не имеет standby. Rebalance прерывает активные запросы, поэтому выполняется на лабораторном стенде без пользователей.
+
 ## Статус проекта
 
-Реализованы этапы 1-3: проектирование, инфраструктура, ETL и Data Quality. В Greenplum созданы слои Staging, Core, DM и технические таблицы DQ. Выполнен сквозной запуск на демонстрационной базе авиаперевозок и XML-сервисе ЦБ. Репликация mirror-сегментов и экспериментальное сравнение способов распределения относятся к следующим этапам и пока не выполнены.
+Реализованы этапы 1–4: проектирование, инфраструктура, ETL, Data Quality и репликация Greenplum. В Greenplum созданы слои Staging, Core, DM и технические таблицы DQ. Выполнен сквозной запуск на демонстрационной базе авиаперевозок и XML-сервисе ЦБ. Репликация двух primary на два mirror, реальный failover, восстановление и перезапуск проверены отдельно в этапе 4. Экспериментальное сравнение способов распределения относится к этапу 5 и не входит в эти изменения.

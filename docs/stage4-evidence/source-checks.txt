@@ -1,0 +1,14 @@
+ bookings | booking_amount
+----------+-----------------
+  2111110 | 167409059100.00
+(1 row)
+
+ ticket_flights | ticket_flight_amount
+----------------+----------------------
+        8391852 |      167409059100.00
+(1 row)
+
+ constraints | all_validated
+-------------+---------------
+          26 | t
+(1 row)

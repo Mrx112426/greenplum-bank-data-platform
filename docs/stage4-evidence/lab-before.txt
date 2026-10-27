@@ -1,0 +1,43 @@
+PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.
+/data/coordinator/gpsne-1
+0|2|p|p|n|u|localhost|6000|/data/data1/gpsne0
+1|3|p|p|n|u|localhost|6001|/data/data2/gpsne1
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-Starting gpstate with args: -s
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-local Greenplum Version: 'postgres (Greenplum Database) 7.0.0 build dev'
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-coordinator Greenplum Version: 'PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.'
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-Obtaining Segment details from coordinator...
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-Gathering data from segments...
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:--Coordinator Configuration & Status
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator host                  = localhost
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator postgres process ID   = 130
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator data directory        = /data/coordinator/gpsne-1
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator port                  = 5432
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator current role          = dispatch
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Greenplum initsystem version      = 7.0.0 build dev
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Greenplum current version         = PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Postgres version                  = 12.12
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Coordinator standby               = No coordinator standby configured
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-Segment Instance Status Report
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Segment Info
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Hostname                          = localhost
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Address                           = localhost
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Datadir                           = /data/data1/gpsne0
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Port                              = 6000
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Status
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      PID                               = 109
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Configuration reports status as   = Up
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Database status                   = Up
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-----------------------------------------------------
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Segment Info
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Hostname                          = localhost
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Address                           = localhost
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Datadir                           = /data/data2/gpsne1
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Port                              = 6001
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-   Status
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      PID                               = 110
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Configuration reports status as   = Up
+20261027:11:13:25:000273 gpstate:localhost:gpadmin-[INFO]:-      Database status                   = Up
