@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "source_read_only": "on",
+  "query_variants": 46,
+  "segments": [
+    {
+      "content": 0,
+      "dbid": 2,
+      "role": "p",
+      "preferred_role": "p",
+      "mode": "s",
+      "status": "u",
+      "port": 6000
+    },
+    {
+      "content": 0,
+      "dbid": 4,
+      "role": "m",
+      "preferred_role": "m",
+      "mode": "s",
+      "status": "u",
+      "port": 7000
+    },
+    {
+      "content": 1,
+      "dbid": 3,
+      "role": "p",
+      "preferred_role": "p",
+      "mode": "s",
+      "status": "u",
+      "port": 6001
+    },
+    {
+      "content": 1,
+      "dbid": 5,
+      "role": "m",
+      "preferred_role": "m",
+      "mode": "s",
+      "status": "u",
+      "port": 7001
+    }
+  ],
+  "snapshot_tables": 9,
+  "dwh_unchanged": true
+}

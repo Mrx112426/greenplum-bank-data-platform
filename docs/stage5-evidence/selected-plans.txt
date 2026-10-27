@@ -1,0 +1,89 @@
+### fact / bad_fare / boarding_join
+
+Gather Motion [actual_rows=3, ms=6767.816, width=24] {}
+  Aggregate [actual_rows=2, ms=6767.271, width=24] {"Group Key": ["tf.fare_conditions"]}
+    Sort [actual_rows=4, ms=6767.195, width=24] {}
+      Redistribute Motion [actual_rows=4, ms=6767.057, width=24] {"Hash Key": "tf.fare_conditions"}
+        Aggregate [actual_rows=3, ms=6713.67, width=24] {"Group Key": ["tf.fare_conditions"]}
+          Hash Join [actual_rows=3965698, ms=6286.188, width=14] {"Hash Cond": "((tf.ticket_no = boarding_passes.ticket_no) AND (tf.flight_id = boarding_passes.flight_id))"}
+            Redistribute Motion [actual_rows=4199168, ms=1822.503, width=32] {"Hash Key": "tf.ticket_no"}
+              Seq Scan [actual_rows=8251887, ms=776.045, width=32] {"Relation Name": "tf"}
+            Hash [actual_rows=3965698, ms=1050.497, width=18] {}
+              Seq Scan [actual_rows=3965698, ms=369.48, width=18] {"Relation Name": "boarding_passes"}
+
+### fact / ticket / ticket_join
+
+Limit [actual_rows=20, ms=6394.624, width=23] {}
+  Gather Motion [actual_rows=20, ms=6394.621, width=23] {}
+    Limit [actual_rows=20, ms=6383.796, width=23] {}
+      Sort [actual_rows=20, ms=6374.043, width=23] {}
+        Aggregate [actual_rows=1056656, ms=6253.591, width=23] {"Group Key": ["tickets.book_ref"]}
+          Redistribute Motion [actual_rows=4201363, ms=3521.072, width=13] {"Hash Key": "tickets.book_ref"}
+            Hash Join [actual_rows=4199168, ms=4013.542, width=13] {"Hash Cond": "(tf.ticket_no = tickets.ticket_no)"}
+              Seq Scan [actual_rows=4199168, ms=344.915, width=20] {"Relation Name": "tf"}
+              Hash [actual_rows=1476008, ms=332.687, width=21] {}
+                Seq Scan [actual_rows=1476008, ms=115.06, width=21] {"Relation Name": "tickets"}
+
+### fact / flight / flight_join
+
+Gather Motion [actual_rows=94, ms=1740.89, width=20] {}
+  Aggregate [actual_rows=51, ms=1740.644, width=20] {"Group Key": ["flights.departure_airport"]}
+    Sort [actual_rows=102, ms=1740.6, width=20] {}
+      Redistribute Motion [actual_rows=102, ms=1740.561, width=20] {"Hash Key": "flights.departure_airport"}
+        Aggregate [actual_rows=94, ms=1734.246, width=20] {"Group Key": ["flights.departure_airport"]}
+          Hash Join [actual_rows=4197260, ms=1159.001, width=10] {"Hash Cond": "(tf.flight_id = flights.flight_id)"}
+            Seq Scan [actual_rows=4197260, ms=308.028, width=10] {"Relation Name": "tf"}
+            Hash [actual_rows=107502, ms=18.035, width=8] {}
+              Seq Scan [actual_rows=107502, ms=6.97, width=8] {"Relation Name": "flights"}
+
+### reference / hash / airport_join
+
+Gather Motion [actual_rows=101, ms=30.095, width=25] {}
+  Aggregate [actual_rows=51, ms=29.899, width=25] {"Group Key": ["airports.city"]}
+    Sort [actual_rows=102, ms=29.882, width=25] {}
+      Redistribute Motion [actual_rows=102, ms=29.847, width=25] {"Hash Key": "airports.city"}
+        Aggregate [actual_rows=101, ms=28.148, width=25] {"Group Key": ["airports.city"]}
+          Hash Join [actual_rows=107502, ms=18.52, width=17] {"Hash Cond": "(flights.departure_airport = airports.airport_code)"}
+            Seq Scan [actual_rows=107502, ms=5.833, width=4] {"Relation Name": "flights"}
+            Hash [actual_rows=104, ms=0.089, width=21] {}
+              Broadcast Motion [actual_rows=104, ms=0.074, width=21] {}
+                Seq Scan [actual_rows=56, ms=0.007, width=21] {"Relation Name": "airports"}
+
+### reference / replicated / airport_join
+
+Gather Motion [actual_rows=101, ms=29.002, width=25] {}
+  Aggregate [actual_rows=51, ms=28.879, width=25] {"Group Key": ["airports.city"]}
+    Sort [actual_rows=102, ms=28.861, width=25] {}
+      Redistribute Motion [actual_rows=102, ms=28.821, width=25] {"Hash Key": "airports.city"}
+        Aggregate [actual_rows=101, ms=27.136, width=25] {"Group Key": ["airports.city"]}
+          Hash Join [actual_rows=107502, ms=17.936, width=17] {"Hash Cond": "(flights.departure_airport = airports.airport_code)"}
+            Seq Scan [actual_rows=107502, ms=5.718, width=4] {"Relation Name": "flights"}
+            Hash [actual_rows=104, ms=0.039, width=21] {}
+              Seq Scan [actual_rows=104, ms=0.027, width=21] {"Relation Name": "airports"}
+
+### partition / flat / partition_filter
+
+Gather Motion [actual_rows=3, ms=230.366, width=24] {}
+  Aggregate [actual_rows=2, ms=230.234, width=24] {"Group Key": ["fact.fare_conditions"]}
+    Sort [actual_rows=4, ms=230.225, width=24] {}
+      Redistribute Motion [actual_rows=4, ms=230.215, width=24] {"Hash Key": "fare_conditions"}
+        Aggregate [actual_rows=3, ms=227.984, width=24] {"Group Key": ["fact.fare_conditions"]}
+          Seq Scan [actual_rows=77135, ms=217.918, width=14] {"Relation Name": "fact", "Filter": "((fact.flight_date >= '2016-10-01'::date) AND (fact.flight_date < '2016-10-08'::date))"}
+
+### partition / monthly / partition_filter
+
+Gather Motion [actual_rows=3, ms=34.296, width=24] {}
+  Aggregate [actual_rows=2, ms=34.154, width=24] {"Group Key": ["fact.fare_conditions"]}
+    Sort [actual_rows=4, ms=34.146, width=24] {}
+      Redistribute Motion [actual_rows=4, ms=34.138, width=24] {"Hash Key": "fare_conditions"}
+        Aggregate [actual_rows=3, ms=31.746, width=24] {"Group Key": ["fact.fare_conditions"]}
+          Dynamic Seq Scan [actual_rows=77135, ms=22.01, width=18] {"Relation Name": "fact", "Number of partitions to scan": 1, "Filter": "((fact.flight_date >= '2016-10-01'::date) AND (fact.flight_date < '2016-10-08'::date))"}
+
+### partition / monthly / partition_all
+
+Gather Motion [actual_rows=3, ms=807.974, width=24] {}
+  Aggregate [actual_rows=2, ms=807.806, width=24] {"Group Key": ["fact.fare_conditions"]}
+    Sort [actual_rows=4, ms=807.798, width=24] {}
+      Redistribute Motion [actual_rows=4, ms=807.789, width=24] {"Hash Key": "fare_conditions"}
+        Aggregate [actual_rows=3, ms=805.694, width=24] {"Group Key": ["fact.fare_conditions"]}
+          Dynamic Seq Scan [actual_rows=4199168, ms=288.091, width=14] {"Relation Name": "fact", "Number of partitions to scan": 14}

@@ -1,0 +1,7 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        59G   24G   33G  43% /data
+       datname        |  size
+----------------------+--------
+ dwh                  | 923 MB
+ sharding_stage5_test | 252 MB
+(2 rows)

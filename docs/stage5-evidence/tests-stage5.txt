@@ -1,0 +1,17 @@
+test_every_variant_has_five_plans_and_equal_results (__main__.LiveExperimentsTests.test_every_variant_has_five_plans_and_equal_results) ... ok
+test_live_snapshot_and_mirrors (__main__.LiveExperimentsTests.test_live_snapshot_and_mirrors) ... ok
+test_matrix_contains_all_required_strategies (__main__.LiveExperimentsTests.test_matrix_contains_all_required_strategies) ... ok
+test_partition_pruning_and_identical_distribution (__main__.LiveExperimentsTests.test_partition_pruning_and_identical_distribution) ... ok
+test_physical_layout_and_replica_accounting (__main__.LiveExperimentsTests.test_physical_layout_and_replica_accounting) ... ok
+test_actual_database_mismatch_is_rejected (__main__.MetricsTests.test_actual_database_mismatch_is_rejected) ... ok
+test_balanced_and_empty_relations (__main__.MetricsTests.test_balanced_and_empty_relations) ... ok
+test_dwh_connection_is_read_only_even_without_flag (__main__.MetricsTests.test_dwh_connection_is_read_only_even_without_flag) ... ok
+test_empty_segment_is_included (__main__.MetricsTests.test_empty_segment_is_included) ... ok
+test_only_explicit_test_database_is_writable (__main__.MetricsTests.test_only_explicit_test_database_is_writable) ... ok
+test_result_equivalence_detects_changes (__main__.MetricsTests.test_result_equivalence_detects_changes) ... ok
+test_robust_summary_retains_outliers (__main__.MetricsTests.test_robust_summary_retains_outliers) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 18.937s
+
+OK

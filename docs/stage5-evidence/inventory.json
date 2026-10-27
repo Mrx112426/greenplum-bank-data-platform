@@ -1,0 +1,566 @@
+[
+  {
+    "sql": "SELECT version() AS version, current_database() AS database",
+    "rows": [
+      {
+        "version": "PostgreSQL 12.12 (Greenplum Database 7.0.0 build dev) on aarch64-unknown-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0, 64-bit compiled on Jan 15 2026 18:28:13 Bhuvnesh C.",
+        "database": "dwh"
+      }
+    ]
+  },
+  {
+    "sql": "SELECT content,dbid,role,preferred_role,mode,status,port FROM gp_segment_configuration ORDER BY content,dbid",
+    "rows": [
+      {
+        "content": -1,
+        "dbid": 1,
+        "role": "p",
+        "preferred_role": "p",
+        "mode": "n",
+        "status": "u",
+        "port": 5432
+      },
+      {
+        "content": 0,
+        "dbid": 2,
+        "role": "p",
+        "preferred_role": "p",
+        "mode": "s",
+        "status": "u",
+        "port": 6000
+      },
+      {
+        "content": 0,
+        "dbid": 4,
+        "role": "m",
+        "preferred_role": "m",
+        "mode": "s",
+        "status": "u",
+        "port": 7000
+      },
+      {
+        "content": 1,
+        "dbid": 3,
+        "role": "p",
+        "preferred_role": "p",
+        "mode": "s",
+        "status": "u",
+        "port": 6001
+      },
+      {
+        "content": 1,
+        "dbid": 5,
+        "role": "m",
+        "preferred_role": "m",
+        "mode": "s",
+        "status": "u",
+        "port": 7001
+      }
+    ]
+  },
+  {
+    "sql": "SELECT n.nspname,c.relname,pg_get_table_distributedby(c.oid) AS distribution,am.amname AS storage,c.reloptions FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace LEFT JOIN pg_am am ON am.oid=c.relam WHERE n.nspname IN ('core','dm','staging','dq') AND c.relkind='r' ORDER BY 1,2",
+    "rows": [
+      {
+        "nspname": "core",
+        "relname": "aircrafts",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "core",
+        "relname": "airports",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "core",
+        "relname": "boarding_passes",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "core",
+        "relname": "bookings",
+        "distribution": "DISTRIBUTED BY (book_ref)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "core",
+        "relname": "exchange_rates",
+        "distribution": "DISTRIBUTED BY (currency_code)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "core",
+        "relname": "flights",
+        "distribution": "DISTRIBUTED BY (flight_id)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "core",
+        "relname": "seats",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "core",
+        "relname": "ticket_flights",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "core",
+        "relname": "tickets",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "dm",
+        "relname": "booking_sales_daily",
+        "distribution": "DISTRIBUTED BY (booking_date)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dm",
+        "relname": "exchange_rates_daily",
+        "distribution": "DISTRIBUTED BY (currency_code)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dm",
+        "relname": "flight_airport_daily",
+        "distribution": "DISTRIBUTED BY (departure_airport)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dm",
+        "relname": "ticket_flight_details",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "dq",
+        "relname": "check_results",
+        "distribution": "DISTRIBUTED BY (batch_id)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dq",
+        "relname": "layer_state",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dq",
+        "relname": "pipeline_runs",
+        "distribution": "DISTRIBUTED BY (batch_id)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dq",
+        "relname": "platform_status",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "dq",
+        "relname": "rejected_records",
+        "distribution": "DISTRIBUTED BY (batch_id)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "staging",
+        "relname": "aircrafts",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "staging",
+        "relname": "airports",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "staging",
+        "relname": "boarding_passes",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "staging",
+        "relname": "bookings",
+        "distribution": "DISTRIBUTED BY (book_ref)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "staging",
+        "relname": "exchange_rates",
+        "distribution": "DISTRIBUTED BY (currency_code)",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "staging",
+        "relname": "flights",
+        "distribution": "DISTRIBUTED BY (flight_id)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "staging",
+        "relname": "seats",
+        "distribution": "DISTRIBUTED REPLICATED",
+        "storage": "heap",
+        "reloptions": null
+      },
+      {
+        "nspname": "staging",
+        "relname": "ticket_flights",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      },
+      {
+        "nspname": "staging",
+        "relname": "tickets",
+        "distribution": "DISTRIBUTED BY (ticket_no)",
+        "storage": "ao_column",
+        "reloptions": [
+          "compresstype=zstd",
+          "compresslevel=1",
+          "blocksize=32768",
+          "checksum=true"
+        ]
+      }
+    ]
+  },
+  {
+    "sql": "SELECT name,setting,unit FROM pg_settings WHERE name IN ('optimizer','statement_mem','work_mem','gp_resource_manager','gp_vmem_protect_limit','TimeZone') ORDER BY name",
+    "rows": [
+      {
+        "name": "TimeZone",
+        "setting": "UTC",
+        "unit": null
+      },
+      {
+        "name": "gp_resource_manager",
+        "setting": "none",
+        "unit": null
+      },
+      {
+        "name": "gp_vmem_protect_limit",
+        "setting": "8192",
+        "unit": null
+      },
+      {
+        "name": "optimizer",
+        "setting": "on",
+        "unit": null
+      },
+      {
+        "name": "statement_mem",
+        "setting": "128000",
+        "unit": "kB"
+      },
+      {
+        "name": "work_mem",
+        "setting": "32768",
+        "unit": "kB"
+      }
+    ]
+  },
+  {
+    "sql": "SELECT n.nspname,c.relname,p.policytype,p.numsegments,p.distkey::text AS distkey,p.distclass::text AS hash_opclasses FROM gp_distribution_policy p JOIN pg_class c ON c.oid=p.localoid JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname IN ('core','dm','staging','dq') ORDER BY 1,2",
+    "rows": [
+      {
+        "nspname": "core",
+        "relname": "aircrafts",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "core",
+        "relname": "airports",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "core",
+        "relname": "boarding_passes",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "core",
+        "relname": "bookings",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "core",
+        "relname": "exchange_rates",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "3",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "core",
+        "relname": "flights",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10054"
+      },
+      {
+        "nspname": "core",
+        "relname": "seats",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "core",
+        "relname": "ticket_flights",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "core",
+        "relname": "tickets",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dm",
+        "relname": "booking_sales_daily",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10045"
+      },
+      {
+        "nspname": "dm",
+        "relname": "exchange_rates_daily",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "3",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dm",
+        "relname": "flight_airport_daily",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "2",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dm",
+        "relname": "ticket_flight_details",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dq",
+        "relname": "check_results",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "2",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dq",
+        "relname": "layer_state",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "dq",
+        "relname": "pipeline_runs",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "dq",
+        "relname": "platform_status",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "dq",
+        "relname": "rejected_records",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "staging",
+        "relname": "aircrafts",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "staging",
+        "relname": "airports",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "staging",
+        "relname": "boarding_passes",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "staging",
+        "relname": "bookings",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "staging",
+        "relname": "exchange_rates",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "3",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "staging",
+        "relname": "flights",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10054"
+      },
+      {
+        "nspname": "staging",
+        "relname": "seats",
+        "policytype": "r",
+        "numsegments": 2,
+        "distkey": "",
+        "hash_opclasses": ""
+      },
+      {
+        "nspname": "staging",
+        "relname": "ticket_flights",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      },
+      {
+        "nspname": "staging",
+        "relname": "tickets",
+        "policytype": "p",
+        "numsegments": 2,
+        "distkey": "1",
+        "hash_opclasses": "10072"
+      }
+    ]
+  }
+]

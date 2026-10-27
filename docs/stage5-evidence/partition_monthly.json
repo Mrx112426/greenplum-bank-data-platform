@@ -1,0 +1,61 @@
+{
+  "partitions": [
+    {
+      "relname": "fact_1_prt_1",
+      "bound": "FOR VALUES FROM ('2015-10-01') TO ('2015-11-01')"
+    },
+    {
+      "relname": "fact_1_prt_10",
+      "bound": "FOR VALUES FROM ('2016-07-01') TO ('2016-08-01')"
+    },
+    {
+      "relname": "fact_1_prt_11",
+      "bound": "FOR VALUES FROM ('2016-08-01') TO ('2016-09-01')"
+    },
+    {
+      "relname": "fact_1_prt_12",
+      "bound": "FOR VALUES FROM ('2016-09-01') TO ('2016-10-01')"
+    },
+    {
+      "relname": "fact_1_prt_13",
+      "bound": "FOR VALUES FROM ('2016-10-01') TO ('2016-11-01')"
+    },
+    {
+      "relname": "fact_1_prt_14",
+      "bound": "FOR VALUES FROM ('2016-11-01') TO ('2016-12-01')"
+    },
+    {
+      "relname": "fact_1_prt_2",
+      "bound": "FOR VALUES FROM ('2015-11-01') TO ('2015-12-01')"
+    },
+    {
+      "relname": "fact_1_prt_3",
+      "bound": "FOR VALUES FROM ('2015-12-01') TO ('2016-01-01')"
+    },
+    {
+      "relname": "fact_1_prt_4",
+      "bound": "FOR VALUES FROM ('2016-01-01') TO ('2016-02-01')"
+    },
+    {
+      "relname": "fact_1_prt_5",
+      "bound": "FOR VALUES FROM ('2016-02-01') TO ('2016-03-01')"
+    },
+    {
+      "relname": "fact_1_prt_6",
+      "bound": "FOR VALUES FROM ('2016-03-01') TO ('2016-04-01')"
+    },
+    {
+      "relname": "fact_1_prt_7",
+      "bound": "FOR VALUES FROM ('2016-04-01') TO ('2016-05-01')"
+    },
+    {
+      "relname": "fact_1_prt_8",
+      "bound": "FOR VALUES FROM ('2016-05-01') TO ('2016-06-01')"
+    },
+    {
+      "relname": "fact_1_prt_9",
+      "bound": "FOR VALUES FROM ('2016-06-01') TO ('2016-07-01')"
+    }
+  ],
+  "count": 14
+}

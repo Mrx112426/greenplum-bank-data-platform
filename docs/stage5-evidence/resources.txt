@@ -1,0 +1,10 @@
+distributed-data-platform-airflow-scheduler-1 639.6MiB / 7.654GiB
+distributed-data-platform-airflow-webserver-1 920.1MiB / 7.654GiB
+distributed-data-platform-postgres-source-1 525.6MiB / 7.654GiB
+distributed-data-platform-postgres-airflow-1 47.89MiB / 7.654GiB
+distributed-data-platform-greenplum-1 585.1MiB / 7.654GiB
+distributed-data-platform-minio-1 105.9MiB / 7.654GiB
+greenplum-replication-lab-greenplum-1 362.4MiB / 7.654GiB
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        59G   24G   33G  43% /data
+Engine=27.3.1 RAM=8217968640 Architecture=aarch64

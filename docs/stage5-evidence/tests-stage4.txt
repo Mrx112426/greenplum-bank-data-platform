@@ -1,0 +1,12 @@
+test_fault_requires_isolation_and_explicit_flag (__main__.ReplicationTests.test_fault_requires_isolation_and_explicit_flag) ... ok
+test_fixture_integrity (__main__.ReplicationTests.test_fixture_integrity) ... ok
+test_pairs_and_sync (__main__.ReplicationTests.test_pairs_and_sync) ... ok
+test_preferred_roles_restored (__main__.ReplicationTests.test_preferred_roles_restored) ... ok
+test_setup_idempotency (__main__.ReplicationTests.test_setup_idempotency) ... ok
+test_two_mirrors (__main__.ReplicationTests.test_two_mirrors) ... ok
+test_two_primary (__main__.ReplicationTests.test_two_primary) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.356s
+
+OK

@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-27T12:26:22.369833+00:00",
+  "source_bytes": 967848897,
+  "vm_free_bytes": 34415435776,
+  "required_free_bytes": 6442450944,
+  "vm_physical_memory_bytes": 8217968640,
+  "segments": [
+    {
+      "content": 0,
+      "dbid": 2,
+      "role": "p",
+      "preferred_role": "p",
+      "mode": "s",
+      "status": "u",
+      "port": 6000
+    },
+    {
+      "content": 0,
+      "dbid": 4,
+      "role": "m",
+      "preferred_role": "m",
+      "mode": "s",
+      "status": "u",
+      "port": 7000
+    },
+    {
+      "content": 1,
+      "dbid": 3,
+      "role": "p",
+      "preferred_role": "p",
+      "mode": "s",
+      "status": "u",
+      "port": 6001
+    },
+    {
+      "content": 1,
+      "dbid": 5,
+      "role": "m",
+      "preferred_role": "m",
+      "mode": "s",
+      "status": "u",
+      "port": 7001
+    }
+  ],
+  "repeats": 5,
+  "warmups": 1,
+  "target_statement_mem": "64MB",
+  "execution_mode": "one runner, one materialized work variant",
+  "platform": "aarch64"
+}

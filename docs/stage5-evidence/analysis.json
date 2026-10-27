@@ -1,0 +1,2801 @@
+[
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "query": "ticket_join",
+    "median_ms": 7189.797,
+    "min_ms": 7008.592,
+    "max_ms": 7446.199,
+    "stdev_ms": 156.5393176867715,
+    "samples_ms": [
+      7446.199,
+      7008.592,
+      7381.998,
+      7189.797,
+      7178.546
+    ],
+    "client_wall": {
+      "median_ms": 7194.817337000131,
+      "min_ms": 7019.870586999787,
+      "max_ms": 7451.316295999732,
+      "stdev_ms": 155.03104998011645,
+      "samples_ms": [
+        7451.316295999732,
+        7019.870586999787,
+        7389.360628000304,
+        7194.817337000131,
+        7184.901834999891
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 83983360,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "query": "flight_join",
+    "median_ms": 2063.468,
+    "min_ms": 1841.128,
+    "max_ms": 2588.187,
+    "stdev_ms": 268.74736999390336,
+    "samples_ms": [
+      2063.468,
+      2588.187,
+      1866.424,
+      1841.128,
+      2070.175
+    ],
+    "client_wall": {
+      "median_ms": 2068.9528750003774,
+      "min_ms": 1846.0916259996338,
+      "max_ms": 2593.4807089997776,
+      "stdev_ms": 267.1128580193772,
+      "samples_ms": [
+        2068.9528750003774,
+        2593.4807089997776,
+        1881.8758339998567,
+        1846.0916259996338,
+        2080.4727509998884
+      ]
+    },
+    "equivalence": {
+      "rows": 94,
+      "sha256": "152ca0c54ce2d304fd24c2bc9dfea84f98cc5459708f6e0fa65a44979130327c"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 1880,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 2040,
+        "hash_key": "flights.departure_airport"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4197260,
+        "actual_loops": 1,
+        "plan_width": 10,
+        "reported_rows_times_plan_width": 41972600,
+        "hash_key": "tf.flight_id"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "query": "boarding_join",
+    "median_ms": 6415.768,
+    "min_ms": 6262.687,
+    "max_ms": 6768.872,
+    "stdev_ms": 182.93967742116538,
+    "samples_ms": [
+      6768.872,
+      6386.113,
+      6262.687,
+      6415.768,
+      6637.229
+    ],
+    "client_wall": {
+      "median_ms": 6426.198919999933,
+      "min_ms": 6271.3541279999845,
+      "max_ms": 6778.744170000209,
+      "stdev_ms": 184.59187592095518,
+      "samples_ms": [
+        6778.744170000209,
+        6394.818752999981,
+        6271.3541279999845,
+        6426.198919999933,
+        6654.9842119998175
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b478a683c4b4d89d1a1a10116d0ebaaaed33a3a99257eab4efac5305fee2d818"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "tf.fare_conditions"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 32,
+        "reported_rows_times_plan_width": 134373376,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "query": "ticket_filter",
+    "median_ms": 512.742,
+    "min_ms": 491.515,
+    "max_ms": 527.899,
+    "stdev_ms": 14.64656406670178,
+    "samples_ms": [
+      512.742,
+      491.515,
+      499.105,
+      527.899,
+      527.29
+    ],
+    "client_wall": {
+      "median_ms": 520.0905829997282,
+      "min_ms": 493.6743339999339,
+      "max_ms": 530.063833999975,
+      "stdev_ms": 14.940500128708539,
+      "samples_ms": [
+        520.0905829997282,
+        493.6743339999339,
+        501.1152080001011,
+        530.063833999975,
+        529.6872499998244
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "f0d1852a08932cda5dd1189a26fd48a205dfe95563e9d188565047ffed315746"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 2,
+        "actual_loops": 1,
+        "plan_width": 16,
+        "reported_rows_times_plan_width": 32,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "bad_fare",
+    "query": "flight_filter",
+    "median_ms": 368.319,
+    "min_ms": 356.747,
+    "max_ms": 381.776,
+    "stdev_ms": 9.296428970308975,
+    "samples_ms": [
+      368.319,
+      360.964,
+      376.339,
+      381.776,
+      356.747
+    ],
+    "client_wall": {
+      "median_ms": 371.1302510000678,
+      "min_ms": 359.3079580000449,
+      "max_ms": 396.4108750001287,
+      "stdev_ms": 13.622739511245488,
+      "samples_ms": [
+        371.1302510000678,
+        363.30220899981214,
+        383.47316699992007,
+        396.4108750001287,
+        359.3079580000449
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "8d5fac58d79b827ecdc6a464beeed241d681504596021d562ebdce344b9c18d8"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 6,
+        "reported_rows_times_plan_width": 564,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "query": "ticket_join",
+    "median_ms": 6589.83,
+    "min_ms": 6312.29,
+    "max_ms": 6998.867,
+    "stdev_ms": 241.29940889326696,
+    "samples_ms": [
+      6312.29,
+      6998.867,
+      6397.581,
+      6589.83,
+      6690.564
+    ],
+    "client_wall": {
+      "median_ms": 6595.404253999732,
+      "min_ms": 6317.08700299987,
+      "max_ms": 7007.912169000065,
+      "stdev_ms": 242.41925978369466,
+      "samples_ms": [
+        6317.08700299987,
+        7007.912169000065,
+        6404.204587000095,
+        6595.404253999732,
+        6695.538461000069
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 83983360,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "query": "flight_join",
+    "median_ms": 1881.119,
+    "min_ms": 1801.356,
+    "max_ms": 2149.455,
+    "stdev_ms": 119.18260165812791,
+    "samples_ms": [
+      2149.455,
+      1871.567,
+      1881.119,
+      1801.356,
+      1899.018
+    ],
+    "client_wall": {
+      "median_ms": 1892.3397920002571,
+      "min_ms": 1805.8837920002588,
+      "max_ms": 2156.3729180002156,
+      "stdev_ms": 119.1817800678949,
+      "samples_ms": [
+        2156.3729180002156,
+        1876.5865010000198,
+        1892.3397920002571,
+        1805.8837920002588,
+        1919.954209000025
+      ]
+    },
+    "equivalence": {
+      "rows": 94,
+      "sha256": "152ca0c54ce2d304fd24c2bc9dfea84f98cc5459708f6e0fa65a44979130327c"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 1880,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 2040,
+        "hash_key": "flights.departure_airport"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4197260,
+        "actual_loops": 1,
+        "plan_width": 10,
+        "reported_rows_times_plan_width": 41972600,
+        "hash_key": "tf.flight_id"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "query": "boarding_join",
+    "median_ms": 5242.097,
+    "min_ms": 4675.663,
+    "max_ms": 5278.556,
+    "stdev_ms": 249.93686101461714,
+    "samples_ms": [
+      4675.663,
+      5278.556,
+      4848.552,
+      5257.464,
+      5242.097
+    ],
+    "client_wall": {
+      "median_ms": 5250.173918999735,
+      "min_ms": 4681.26100299969,
+      "max_ms": 5285.768168999766,
+      "stdev_ms": 251.26138949951624,
+      "samples_ms": [
+        4681.26100299969,
+        5285.768168999766,
+        4854.874211000151,
+        5268.15362599973,
+        5250.173918999735
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b478a683c4b4d89d1a1a10116d0ebaaaed33a3a99257eab4efac5305fee2d818"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "tf.fare_conditions"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 32,
+        "reported_rows_times_plan_width": 134373376,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "query": "ticket_filter",
+    "median_ms": 256.117,
+    "min_ms": 251.053,
+    "max_ms": 295.812,
+    "stdev_ms": 17.102635976948118,
+    "samples_ms": [
+      256.117,
+      276.514,
+      253.978,
+      251.053,
+      295.812
+    ],
+    "client_wall": {
+      "median_ms": 258.4503749999385,
+      "min_ms": 254.52754099978847,
+      "max_ms": 297.81787499996426,
+      "stdev_ms": 16.840399478202663,
+      "samples_ms": [
+        258.4503749999385,
+        279.2309999999816,
+        256.2550419997933,
+        254.52754099978847,
+        297.81787499996426
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "f0d1852a08932cda5dd1189a26fd48a205dfe95563e9d188565047ffed315746"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 2,
+        "actual_loops": 1,
+        "plan_width": 16,
+        "reported_rows_times_plan_width": 32,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "composite",
+    "query": "flight_filter",
+    "median_ms": 186.219,
+    "min_ms": 182.754,
+    "max_ms": 191.715,
+    "stdev_ms": 3.0840899468076506,
+    "samples_ms": [
+      182.754,
+      185.126,
+      191.715,
+      188.791,
+      186.219
+    ],
+    "client_wall": {
+      "median_ms": 188.83366599993678,
+      "min_ms": 185.43070799978523,
+      "max_ms": 195.61812500023734,
+      "stdev_ms": 3.5841900844377323,
+      "samples_ms": [
+        185.43070799978523,
+        187.12066699981733,
+        195.61812500023734,
+        191.59191700009615,
+        188.83366599993678
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "8d5fac58d79b827ecdc6a464beeed241d681504596021d562ebdce344b9c18d8"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 6,
+        "reported_rows_times_plan_width": 564,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "query": "ticket_join",
+    "median_ms": 6778.122,
+    "min_ms": 6415.498,
+    "max_ms": 7016.79,
+    "stdev_ms": 200.47117353275524,
+    "samples_ms": [
+      6415.498,
+      6887.09,
+      7016.79,
+      6778.122,
+      6745.5
+    ],
+    "client_wall": {
+      "median_ms": 6783.716295000431,
+      "min_ms": 6423.455169000135,
+      "max_ms": 7025.2769190001345,
+      "stdev_ms": 200.7083967801109,
+      "samples_ms": [
+        6423.455169000135,
+        6895.992003000174,
+        7025.2769190001345,
+        6783.716295000431,
+        6752.866002999781
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 83983360,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "query": "flight_join",
+    "median_ms": 1825.586,
+    "min_ms": 1798.473,
+    "max_ms": 2012.753,
+    "stdev_ms": 80.43607726238268,
+    "samples_ms": [
+      1798.473,
+      1799.048,
+      2012.753,
+      1879.446,
+      1825.586
+    ],
+    "client_wall": {
+      "median_ms": 1833.166083999913,
+      "min_ms": 1804.1190839999217,
+      "max_ms": 2023.8522509998802,
+      "stdev_ms": 82.1939389497298,
+      "samples_ms": [
+        1805.1727509996454,
+        1804.1190839999217,
+        2023.8522509998802,
+        1884.464375999869,
+        1833.166083999913
+      ]
+    },
+    "equivalence": {
+      "rows": 94,
+      "sha256": "152ca0c54ce2d304fd24c2bc9dfea84f98cc5459708f6e0fa65a44979130327c"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 1880,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 2040,
+        "hash_key": "flights.departure_airport"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4197260,
+        "actual_loops": 1,
+        "plan_width": 10,
+        "reported_rows_times_plan_width": 41972600,
+        "hash_key": "tf.flight_id"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "query": "boarding_join",
+    "median_ms": 5205.201,
+    "min_ms": 5056.652,
+    "max_ms": 5355.992,
+    "stdev_ms": 96.5993011639319,
+    "samples_ms": [
+      5205.201,
+      5355.992,
+      5157.762,
+      5056.652,
+      5205.767
+    ],
+    "client_wall": {
+      "median_ms": 5212.113711000256,
+      "min_ms": 5065.170961000149,
+      "max_ms": 5361.497877000147,
+      "stdev_ms": 95.82939790839137,
+      "samples_ms": [
+        5214.945419000287,
+        5361.497877000147,
+        5163.338334999935,
+        5065.170961000149,
+        5212.113711000256
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b478a683c4b4d89d1a1a10116d0ebaaaed33a3a99257eab4efac5305fee2d818"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "tf.fare_conditions"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 32,
+        "reported_rows_times_plan_width": 134373376,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "query": "ticket_filter",
+    "median_ms": 281.233,
+    "min_ms": 252.783,
+    "max_ms": 408.284,
+    "stdev_ms": 65.6859192612846,
+    "samples_ms": [
+      408.284,
+      281.233,
+      252.783,
+      259.629,
+      384.426
+    ],
+    "client_wall": {
+      "median_ms": 289.5309579998866,
+      "min_ms": 254.63362500022413,
+      "max_ms": 415.96741700004713,
+      "stdev_ms": 66.74803812524704,
+      "samples_ms": [
+        415.96741700004713,
+        289.5309579998866,
+        254.63362500022413,
+        262.37733400012075,
+        387.56904199999553
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "f0d1852a08932cda5dd1189a26fd48a205dfe95563e9d188565047ffed315746"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 2,
+        "actual_loops": 1,
+        "plan_width": 16,
+        "reported_rows_times_plan_width": 32,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "random",
+    "query": "flight_filter",
+    "median_ms": 185.855,
+    "min_ms": 185.343,
+    "max_ms": 187.908,
+    "stdev_ms": 0.8871759690162918,
+    "samples_ms": [
+      187.908,
+      185.855,
+      185.792,
+      186.252,
+      185.343
+    ],
+    "client_wall": {
+      "median_ms": 188.00904199997603,
+      "min_ms": 187.27483400016354,
+      "max_ms": 190.83816699958334,
+      "stdev_ms": 1.225741065393412,
+      "samples_ms": [
+        190.83816699958334,
+        188.00904199997603,
+        187.94995799999015,
+        188.46979199997804,
+        187.27483400016354
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "8d5fac58d79b827ecdc6a464beeed241d681504596021d562ebdce344b9c18d8"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 6,
+        "reported_rows_times_plan_width": 564,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "query": "ticket_join",
+    "median_ms": 6752.961,
+    "min_ms": 6421.045,
+    "max_ms": 7047.625,
+    "stdev_ms": 254.56935042035204,
+    "samples_ms": [
+      6421.045,
+      6752.961,
+      7047.625,
+      6980.721,
+      6476.105
+    ],
+    "client_wall": {
+      "median_ms": 6765.845293999519,
+      "min_ms": 6426.379045000431,
+      "max_ms": 7054.49612800021,
+      "stdev_ms": 255.60455322820764,
+      "samples_ms": [
+        6426.379045000431,
+        6765.845293999519,
+        7054.49612800021,
+        6988.084044999596,
+        6480.6991699997525
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "query": "flight_join",
+    "median_ms": 1796.709,
+    "min_ms": 1751.022,
+    "max_ms": 1967.763,
+    "stdev_ms": 78.68797334180108,
+    "samples_ms": [
+      1759.579,
+      1967.763,
+      1751.022,
+      1796.709,
+      1833.769
+    ],
+    "client_wall": {
+      "median_ms": 1801.765666999927,
+      "min_ms": 1761.0235840002133,
+      "max_ms": 1973.9190840000447,
+      "stdev_ms": 78.28637445830938,
+      "samples_ms": [
+        1764.2612929994357,
+        1973.9190840000447,
+        1761.0235840002133,
+        1801.765666999927,
+        1838.71075100069
+      ]
+    },
+    "equivalence": {
+      "rows": 94,
+      "sha256": "152ca0c54ce2d304fd24c2bc9dfea84f98cc5459708f6e0fa65a44979130327c"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 1880,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 2040,
+        "hash_key": "flights.departure_airport"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4197260,
+        "actual_loops": 1,
+        "plan_width": 10,
+        "reported_rows_times_plan_width": 41972600,
+        "hash_key": "tf.flight_id"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "query": "boarding_join",
+    "median_ms": 5262.571,
+    "min_ms": 4986.33,
+    "max_ms": 5699.525,
+    "stdev_ms": 242.99910533448468,
+    "samples_ms": [
+      5699.525,
+      5262.571,
+      5199.772,
+      5468.908,
+      4986.33
+    ],
+    "client_wall": {
+      "median_ms": 5270.638585999222,
+      "min_ms": 4993.918253000629,
+      "max_ms": 5709.499669999786,
+      "stdev_ms": 244.46030381653293,
+      "samples_ms": [
+        5709.499669999786,
+        5270.638585999222,
+        5206.0208779994355,
+        5481.544293999832,
+        4993.918253000629
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b478a683c4b4d89d1a1a10116d0ebaaaed33a3a99257eab4efac5305fee2d818"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "tf.fare_conditions"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "query": "ticket_filter",
+    "median_ms": 253.549,
+    "min_ms": 246.941,
+    "max_ms": 286.995,
+    "stdev_ms": 14.456421958423874,
+    "samples_ms": [
+      286.995,
+      261.195,
+      253.549,
+      246.941,
+      249.848
+    ],
+    "client_wall": {
+      "median_ms": 255.70441699983348,
+      "min_ms": 248.924624999745,
+      "max_ms": 294.0012500002922,
+      "stdev_ms": 16.362681608641473,
+      "samples_ms": [
+        294.0012500002922,
+        263.77975000013976,
+        255.70441699983348,
+        248.924624999745,
+        251.7844169997261
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "f0d1852a08932cda5dd1189a26fd48a205dfe95563e9d188565047ffed315746"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 1,
+        "receivers": 1,
+        "actual_rows_reported": 1,
+        "actual_loops": 1,
+        "plan_width": 16,
+        "reported_rows_times_plan_width": 16,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "ticket",
+    "query": "flight_filter",
+    "median_ms": 186.621,
+    "min_ms": 184.565,
+    "max_ms": 198.738,
+    "stdev_ms": 5.174712150448563,
+    "samples_ms": [
+      184.565,
+      186.621,
+      198.738,
+      190.928,
+      185.755
+    ],
+    "client_wall": {
+      "median_ms": 190.7550829992033,
+      "min_ms": 187.47479100056808,
+      "max_ms": 200.88116700026148,
+      "stdev_ms": 5.135900558477203,
+      "samples_ms": [
+        187.47479100056808,
+        190.7550829992033,
+        200.88116700026148,
+        195.8406660005494,
+        187.78858299992862
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "8d5fac58d79b827ecdc6a464beeed241d681504596021d562ebdce344b9c18d8"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 6,
+        "reported_rows_times_plan_width": 564,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "query": "ticket_join",
+    "median_ms": 6662.945,
+    "min_ms": 6474.727,
+    "max_ms": 7487.561,
+    "stdev_ms": 374.5225956478459,
+    "samples_ms": [
+      6716.54,
+      6474.727,
+      7487.561,
+      6478.252,
+      6662.945
+    ],
+    "client_wall": {
+      "median_ms": 6667.356752999694,
+      "min_ms": 6482.267669000066,
+      "max_ms": 7494.840503999512,
+      "stdev_ms": 374.9424339737898,
+      "samples_ms": [
+        6725.119460999849,
+        6482.267669000066,
+        7494.840503999512,
+        6483.334170000489,
+        6667.356752999694
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4199168,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 83983360,
+        "hash_key": "tf.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "query": "flight_join",
+    "median_ms": 1741.185,
+    "min_ms": 1682.319,
+    "max_ms": 1897.227,
+    "stdev_ms": 74.06109602645645,
+    "samples_ms": [
+      1741.185,
+      1682.319,
+      1760.209,
+      1897.227,
+      1712.957
+    ],
+    "client_wall": {
+      "median_ms": 1747.6895010004228,
+      "min_ms": 1686.6313760001503,
+      "max_ms": 1901.7950839997866,
+      "stdev_ms": 74.06896072291298,
+      "samples_ms": [
+        1747.6895010004228,
+        1686.6313760001503,
+        1771.1226670007818,
+        1901.7950839997866,
+        1717.6779179999357
+      ]
+    },
+    "equivalence": {
+      "rows": 94,
+      "sha256": "152ca0c54ce2d304fd24c2bc9dfea84f98cc5459708f6e0fa65a44979130327c"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 1880,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 2040,
+        "hash_key": "flights.departure_airport"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "query": "boarding_join",
+    "median_ms": 4831.346,
+    "min_ms": 4801.697,
+    "max_ms": 5087.824,
+    "stdev_ms": 105.64254008608454,
+    "samples_ms": [
+      4825.066,
+      5087.824,
+      4801.697,
+      4846.754,
+      4831.346
+    ],
+    "client_wall": {
+      "median_ms": 4837.995586000034,
+      "min_ms": 4806.751085000542,
+      "max_ms": 5094.061127999339,
+      "stdev_ms": 105.84800664323411,
+      "samples_ms": [
+        4830.716294000013,
+        5094.061127999339,
+        4806.751085000542,
+        4852.831418999813,
+        4837.995586000034
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b478a683c4b4d89d1a1a10116d0ebaaaed33a3a99257eab4efac5305fee2d818"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "tf.fare_conditions"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 3963850,
+        "actual_loops": 1,
+        "plan_width": 18,
+        "reported_rows_times_plan_width": 71349300,
+        "hash_key": "boarding_passes.flight_id"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "query": "ticket_filter",
+    "median_ms": 254.871,
+    "min_ms": 251.721,
+    "max_ms": 303.937,
+    "stdev_ms": 19.58302225296188,
+    "samples_ms": [
+      303.937,
+      254.871,
+      253.97,
+      268.83,
+      251.721
+    ],
+    "client_wall": {
+      "median_ms": 257.3245829998996,
+      "min_ms": 253.65845899978012,
+      "max_ms": 307.0008750000852,
+      "stdev_ms": 19.946586566858834,
+      "samples_ms": [
+        307.0008750000852,
+        257.3245829998996,
+        255.96120899990638,
+        270.8926249997603,
+        253.65845899978012
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "f0d1852a08932cda5dd1189a26fd48a205dfe95563e9d188565047ffed315746"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 2,
+        "actual_loops": 1,
+        "plan_width": 16,
+        "reported_rows_times_plan_width": 32,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "fact",
+    "variant": "flight",
+    "query": "flight_filter",
+    "median_ms": 181.7,
+    "min_ms": 178.081,
+    "max_ms": 193.567,
+    "stdev_ms": 5.527780444265134,
+    "samples_ms": [
+      178.081,
+      179.229,
+      181.7,
+      193.567,
+      184.315
+    ],
+    "client_wall": {
+      "median_ms": 183.74520800080063,
+      "min_ms": 180.79766700066102,
+      "max_ms": 197.75920800020685,
+      "stdev_ms": 6.1764771476383284,
+      "samples_ms": [
+        180.79766700066102,
+        181.50450000030105,
+        183.74520800080063,
+        197.75920800020685,
+        186.33383300038986
+      ]
+    },
+    "equivalence": {
+      "rows": 1,
+      "sha256": "8d5fac58d79b827ecdc6a464beeed241d681504596021d562ebdce344b9c18d8"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 1,
+        "receivers": 1,
+        "actual_rows_reported": 94,
+        "actual_loops": 1,
+        "plan_width": 6,
+        "reported_rows_times_plan_width": 564,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "booking",
+    "query": "ticket_join",
+    "median_ms": 6911.745,
+    "min_ms": 6507.868,
+    "max_ms": 7263.917,
+    "stdev_ms": 272.27716132602814,
+    "samples_ms": [
+      7221.293,
+      6911.745,
+      6507.868,
+      6902.608,
+      7263.917
+    ],
+    "client_wall": {
+      "median_ms": 6924.36846200053,
+      "min_ms": 6512.267795000298,
+      "max_ms": 7271.183169999858,
+      "stdev_ms": 272.5319305424366,
+      "samples_ms": [
+        7228.213420000429,
+        6924.36846200053,
+        6512.267795000298,
+        6921.092544999738,
+        7271.183169999858
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 1476008,
+        "actual_loops": 1,
+        "plan_width": 21,
+        "reported_rows_times_plan_width": 30996168,
+        "hash_key": "tickets.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "booking",
+    "query": "booking_join",
+    "median_ms": 1999.906,
+    "min_ms": 1925.658,
+    "max_ms": 2139.056,
+    "stdev_ms": 72.16698825252445,
+    "samples_ms": [
+      1925.658,
+      2067.325,
+      1997.688,
+      1999.906,
+      2139.056
+    ],
+    "client_wall": {
+      "median_ms": 2006.6416259996913,
+      "min_ms": 1930.9924179997324,
+      "max_ms": 2153.4355009998762,
+      "stdev_ms": 76.80169519650369,
+      "samples_ms": [
+        1930.9924179997324,
+        2089.742082999692,
+        2006.6416259996913,
+        2005.4621670005872,
+        2153.4355009998762
+      ]
+    },
+    "equivalence": {
+      "rows": 392,
+      "sha256": "9b26c4847cc2c19926f011bc47d230376d1c0f9285f8307fe5845cf1df9adad9"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 392,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 10976,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 420,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 11760,
+        "hash_key": "(date(bookings.book_date))"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "random",
+    "query": "ticket_join",
+    "median_ms": 6592.933,
+    "min_ms": 6406.506,
+    "max_ms": 7721.975,
+    "stdev_ms": 484.12013331469717,
+    "samples_ms": [
+      7721.975,
+      6592.933,
+      6457.369,
+      6406.506,
+      6702.325
+    ],
+    "client_wall": {
+      "median_ms": 6597.973711999657,
+      "min_ms": 6410.497752999618,
+      "max_ms": 7730.941377999443,
+      "stdev_ms": 485.3208675309475,
+      "samples_ms": [
+        7730.941377999443,
+        6597.973711999657,
+        6465.537252999638,
+        6410.497752999618,
+        6710.105420000218
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 1476008,
+        "actual_loops": 1,
+        "plan_width": 21,
+        "reported_rows_times_plan_width": 30996168,
+        "hash_key": "tickets.ticket_no"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "random",
+    "query": "booking_join",
+    "median_ms": 1992.913,
+    "min_ms": 1840.356,
+    "max_ms": 2087.931,
+    "stdev_ms": 93.93163808728134,
+    "samples_ms": [
+      1992.913,
+      2087.931,
+      1840.356,
+      1856.001,
+      2000.443
+    ],
+    "client_wall": {
+      "median_ms": 1998.920251000527,
+      "min_ms": 1845.5240849998518,
+      "max_ms": 2102.6140009998926,
+      "stdev_ms": 95.33833715130537,
+      "samples_ms": [
+        1998.920251000527,
+        2102.6140009998926,
+        1845.5240849998518,
+        1868.0631259994698,
+        2006.1142089998611
+      ]
+    },
+    "equivalence": {
+      "rows": 392,
+      "sha256": "9b26c4847cc2c19926f011bc47d230376d1c0f9285f8307fe5845cf1df9adad9"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 392,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 10976,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 420,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 11760,
+        "hash_key": "(date(bookings.book_date))"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 1475806,
+        "actual_loops": 1,
+        "plan_width": 7,
+        "reported_rows_times_plan_width": 10330642,
+        "hash_key": "tickets.book_ref"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "ticket",
+    "query": "ticket_join",
+    "median_ms": 6683.445,
+    "min_ms": 6129.33,
+    "max_ms": 6722.214,
+    "stdev_ms": 240.16899368686205,
+    "samples_ms": [
+      6691.631,
+      6683.445,
+      6129.33,
+      6321.881,
+      6722.214
+    ],
+    "client_wall": {
+      "median_ms": 6689.283962000445,
+      "min_ms": 6134.742545000336,
+      "max_ms": 6727.96933599966,
+      "stdev_ms": 240.28067406821972,
+      "samples_ms": [
+        6696.6181690004305,
+        6689.283962000445,
+        6134.742545000336,
+        6326.951211999585,
+        6727.96933599966
+      ]
+    },
+    "equivalence": {
+      "rows": 20,
+      "sha256": "3240bb1fc28c0d15515930ec0d1dd502f26d15f9e624aa0216e65692425c0dd7"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 20,
+        "actual_loops": 1,
+        "plan_width": 23,
+        "reported_rows_times_plan_width": 460,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4201363,
+        "actual_loops": 1,
+        "plan_width": 13,
+        "reported_rows_times_plan_width": 54617719,
+        "hash_key": "tickets.book_ref"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "tickets",
+    "variant": "ticket",
+    "query": "booking_join",
+    "median_ms": 1864.735,
+    "min_ms": 1836.89,
+    "max_ms": 2191.708,
+    "stdev_ms": 135.97699993366527,
+    "samples_ms": [
+      1836.89,
+      2191.708,
+      1867.691,
+      1843.0,
+      1864.735
+    ],
+    "client_wall": {
+      "median_ms": 1872.4925420001455,
+      "min_ms": 1841.9110009999713,
+      "max_ms": 2201.684708999892,
+      "stdev_ms": 137.32768883052324,
+      "samples_ms": [
+        1841.9110009999713,
+        2201.684708999892,
+        1876.5308759993786,
+        1848.9419600000474,
+        1872.4925420001455
+      ]
+    },
+    "equivalence": {
+      "rows": 392,
+      "sha256": "9b26c4847cc2c19926f011bc47d230376d1c0f9285f8307fe5845cf1df9adad9"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 392,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 10976,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 420,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 11760,
+        "hash_key": "(date(bookings.book_date))"
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 1475806,
+        "actual_loops": 1,
+        "plan_width": 7,
+        "reported_rows_times_plan_width": 10330642,
+        "hash_key": "tickets.book_ref"
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 2
+    }
+  },
+  {
+    "group": "reference",
+    "variant": "hash",
+    "query": "airport_join",
+    "median_ms": 30.255,
+    "min_ms": 30.23,
+    "max_ms": 30.58,
+    "stdev_ms": 0.13151060793715413,
+    "samples_ms": [
+      30.276,
+      30.255,
+      30.23,
+      30.58,
+      30.252
+    ],
+    "client_wall": {
+      "median_ms": 33.95183300017379,
+      "min_ms": 33.66154200011806,
+      "max_ms": 34.1185420002148,
+      "stdev_ms": 0.15950673492227885,
+      "samples_ms": [
+        34.00749999946129,
+        33.80637500049488,
+        33.66154200011806,
+        34.1185420002148,
+        33.95183300017379
+      ]
+    },
+    "equivalence": {
+      "rows": 101,
+      "sha256": "c488fa69e0ab55f54c4407fe747bb2778c2dd183e68f11cc41e24ec6b6ffb1ce"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 101,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2525,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2550,
+        "hash_key": "airports.city"
+      },
+      {
+        "type": "Broadcast Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 104,
+        "actual_loops": 1,
+        "plan_width": 21,
+        "reported_rows_times_plan_width": 2184,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1,
+      "Broadcast Motion": 1
+    }
+  },
+  {
+    "group": "reference",
+    "variant": "random",
+    "query": "airport_join",
+    "median_ms": 30.097,
+    "min_ms": 29.916,
+    "max_ms": 30.951,
+    "stdev_ms": 0.37540825776746045,
+    "samples_ms": [
+      30.049,
+      30.471,
+      30.951,
+      29.916,
+      30.097
+    ],
+    "client_wall": {
+      "median_ms": 33.77745899979345,
+      "min_ms": 33.456291999755194,
+      "max_ms": 34.393207999528386,
+      "stdev_ms": 0.3269530411397114,
+      "samples_ms": [
+        33.62887499952194,
+        34.024458000203595,
+        34.393207999528386,
+        33.456291999755194,
+        33.77745899979345
+      ]
+    },
+    "equivalence": {
+      "rows": 101,
+      "sha256": "c488fa69e0ab55f54c4407fe747bb2778c2dd183e68f11cc41e24ec6b6ffb1ce"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 101,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2525,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2550,
+        "hash_key": "airports.city"
+      },
+      {
+        "type": "Broadcast Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 104,
+        "actual_loops": 1,
+        "plan_width": 21,
+        "reported_rows_times_plan_width": 2184,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 1,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1,
+      "Broadcast Motion": 1
+    }
+  },
+  {
+    "group": "reference",
+    "variant": "replicated",
+    "query": "airport_join",
+    "median_ms": 30.19,
+    "min_ms": 29.197,
+    "max_ms": 31.0,
+    "stdev_ms": 0.6020961385028144,
+    "samples_ms": [
+      29.197,
+      30.19,
+      31.0,
+      30.015,
+      30.564
+    ],
+    "client_wall": {
+      "median_ms": 33.462499999586726,
+      "min_ms": 32.78354199937894,
+      "max_ms": 34.58325000065088,
+      "stdev_ms": 0.6364981343909527,
+      "samples_ms": [
+        32.78354199937894,
+        33.36962499997753,
+        34.58325000065088,
+        33.462499999586726,
+        34.19237499929295
+      ]
+    },
+    "equivalence": {
+      "rows": 101,
+      "sha256": "c488fa69e0ab55f54c4407fe747bb2778c2dd183e68f11cc41e24ec6b6ffb1ce"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 101,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2525,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 102,
+        "actual_loops": 1,
+        "plan_width": 25,
+        "reported_rows_times_plan_width": 2550,
+        "hash_key": "airports.city"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "rates",
+    "variant": "replicated",
+    "query": "rates_window",
+    "median_ms": 0.31,
+    "min_ms": 0.263,
+    "max_ms": 0.346,
+    "stdev_ms": 0.030831153076069002,
+    "samples_ms": [
+      0.268,
+      0.31,
+      0.263,
+      0.312,
+      0.346
+    ],
+    "client_wall": {
+      "median_ms": 1.2661669998124125,
+      "min_ms": 1.148625000496395,
+      "max_ms": 1.3911250007367926,
+      "stdev_ms": 0.08011668381125993,
+      "samples_ms": [
+        1.148625000496395,
+        1.2284170006751083,
+        1.3014169999223668,
+        1.2661669998124125,
+        1.3911250007367926
+      ]
+    },
+    "equivalence": {
+      "rows": 90,
+      "sha256": "4d2a0e32abd06e0e1263a95bc4bb5a88fd490c340b22039617c74cf427526800"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 1,
+        "receivers": 1,
+        "actual_rows_reported": 90,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 2520,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "rates",
+    "variant": "random",
+    "query": "rates_window",
+    "median_ms": 1.9,
+    "min_ms": 1.717,
+    "max_ms": 2.625,
+    "stdev_ms": 0.32260774944195,
+    "samples_ms": [
+      1.8,
+      1.999,
+      2.625,
+      1.717,
+      1.9
+    ],
+    "client_wall": {
+      "median_ms": 3.0322920001708553,
+      "min_ms": 2.734292000241112,
+      "max_ms": 3.9684160001343116,
+      "stdev_ms": 0.4371842557039273,
+      "samples_ms": [
+        2.8373329996611574,
+        3.0982500002210145,
+        3.9684160001343116,
+        2.734292000241112,
+        3.0322920001708553
+      ]
+    },
+    "equivalence": {
+      "rows": 90,
+      "sha256": "4d2a0e32abd06e0e1263a95bc4bb5a88fd490c340b22039617c74cf427526800"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 90,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 2520,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 60,
+        "actual_loops": 1,
+        "plan_width": 15,
+        "reported_rows_times_plan_width": 900,
+        "hash_key": "currency_code"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "rates",
+    "variant": "currency",
+    "query": "rates_window",
+    "median_ms": 0.27,
+    "min_ms": 0.228,
+    "max_ms": 0.323,
+    "stdev_ms": 0.033944660846737,
+    "samples_ms": [
+      0.228,
+      0.24,
+      0.287,
+      0.323,
+      0.27
+    ],
+    "client_wall": {
+      "median_ms": 1.2357080004221643,
+      "min_ms": 1.1728330000551068,
+      "max_ms": 1.2543339998956071,
+      "stdev_ms": 0.03279899744587203,
+      "samples_ms": [
+        1.1728330000551068,
+        1.1907919997611316,
+        1.2496250001277076,
+        1.2543339998956071,
+        1.2357080004221643
+      ]
+    },
+    "equivalence": {
+      "rows": 90,
+      "sha256": "4d2a0e32abd06e0e1263a95bc4bb5a88fd490c340b22039617c74cf427526800"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 90,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 2520,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "rates",
+    "variant": "composite",
+    "query": "rates_window",
+    "median_ms": 1.931,
+    "min_ms": 1.825,
+    "max_ms": 2.043,
+    "stdev_ms": 0.07142660568723681,
+    "samples_ms": [
+      2.043,
+      1.931,
+      1.904,
+      1.963,
+      1.825
+    ],
+    "client_wall": {
+      "median_ms": 2.9645829999935813,
+      "min_ms": 2.9125000000931323,
+      "max_ms": 3.0771250003454043,
+      "stdev_ms": 0.05738871919630868,
+      "samples_ms": [
+        3.0771250003454043,
+        2.9645829999935813,
+        2.9484579999916605,
+        3.0162920002112514,
+        2.9125000000931323
+      ]
+    },
+    "equivalence": {
+      "rows": 90,
+      "sha256": "4d2a0e32abd06e0e1263a95bc4bb5a88fd490c340b22039617c74cf427526800"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 90,
+        "actual_loops": 1,
+        "plan_width": 28,
+        "reported_rows_times_plan_width": 2520,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 60,
+        "actual_loops": 1,
+        "plan_width": 15,
+        "reported_rows_times_plan_width": 900,
+        "hash_key": "currency_code"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "daily",
+    "variant": "random",
+    "query": "daily_group",
+    "median_ms": 19.561,
+    "min_ms": 18.893,
+    "max_ms": 20.187,
+    "stdev_ms": 0.45693395584044794,
+    "samples_ms": [
+      19.561,
+      19.13,
+      19.751,
+      20.187,
+      18.893
+    ],
+    "client_wall": {
+      "median_ms": 22.044332999939797,
+      "min_ms": 21.2403749992518,
+      "max_ms": 22.3576670005059,
+      "stdev_ms": 0.4097887127000302,
+      "samples_ms": [
+        22.12054099982197,
+        21.53416599958291,
+        22.044332999939797,
+        22.3576670005059,
+        21.2403749992518
+      ]
+    },
+    "equivalence": {
+      "rows": 397,
+      "sha256": "2a8b093a88d84d1c89da01c7ce88618daac0e9974f72ff6a778bf7c18d915993"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 397,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 7940,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 422,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 8440,
+        "hash_key": "flight_date"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "daily",
+    "variant": "composite",
+    "query": "daily_group",
+    "median_ms": 19.593,
+    "min_ms": 19.299,
+    "max_ms": 19.93,
+    "stdev_ms": 0.23618179438728965,
+    "samples_ms": [
+      19.756,
+      19.364,
+      19.593,
+      19.299,
+      19.93
+    ],
+    "client_wall": {
+      "median_ms": 22.172583000610757,
+      "min_ms": 21.7069159998573,
+      "max_ms": 22.666541000035068,
+      "stdev_ms": 0.3620054961153823,
+      "samples_ms": [
+        22.282791000179714,
+        21.7069159998573,
+        22.172583000610757,
+        21.72366700051498,
+        22.666541000035068
+      ]
+    },
+    "equivalence": {
+      "rows": 397,
+      "sha256": "2a8b093a88d84d1c89da01c7ce88618daac0e9974f72ff6a778bf7c18d915993"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 397,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 7940,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 422,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 8440,
+        "hash_key": "flight_date"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "daily",
+    "variant": "airport",
+    "query": "daily_group",
+    "median_ms": 23.159,
+    "min_ms": 22.026,
+    "max_ms": 26.275,
+    "stdev_ms": 1.5459880206521646,
+    "samples_ms": [
+      26.275,
+      23.79,
+      23.159,
+      22.129,
+      22.026
+    ],
+    "client_wall": {
+      "median_ms": 25.59054199991806,
+      "min_ms": 24.49895900008414,
+      "max_ms": 28.710167000099318,
+      "stdev_ms": 1.5404619863534632,
+      "samples_ms": [
+        28.710167000099318,
+        26.29483400050958,
+        25.59054199991806,
+        24.49895900008414,
+        24.573667000368005
+      ]
+    },
+    "equivalence": {
+      "rows": 397,
+      "sha256": "2a8b093a88d84d1c89da01c7ce88618daac0e9974f72ff6a778bf7c18d915993"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 397,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 7940,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 422,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 8440,
+        "hash_key": "flight_date"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "daily",
+    "variant": "date",
+    "query": "daily_group",
+    "median_ms": 18.335,
+    "min_ms": 18.099,
+    "max_ms": 18.408,
+    "stdev_ms": 0.12994552704883744,
+    "samples_ms": [
+      18.335,
+      18.381,
+      18.408,
+      18.099,
+      18.13
+    ],
+    "client_wall": {
+      "median_ms": 20.660209000197938,
+      "min_ms": 20.310207999500562,
+      "max_ms": 20.71683399935864,
+      "stdev_ms": 0.1813384115087448,
+      "samples_ms": [
+        20.71683399935864,
+        20.660209000197938,
+        20.696959000815696,
+        20.33666700026515,
+        20.310207999500562
+      ]
+    },
+    "equivalence": {
+      "rows": 397,
+      "sha256": "2a8b093a88d84d1c89da01c7ce88618daac0e9974f72ff6a778bf7c18d915993"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 397,
+        "actual_loops": 1,
+        "plan_width": 20,
+        "reported_rows_times_plan_width": 7940,
+        "hash_key": null
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1
+    }
+  },
+  {
+    "group": "partition",
+    "variant": "flat",
+    "query": "partition_filter",
+    "median_ms": 230.638,
+    "min_ms": 230.094,
+    "max_ms": 244.154,
+    "stdev_ms": 5.341303061987776,
+    "samples_ms": [
+      230.638,
+      230.094,
+      232.829,
+      230.5,
+      244.154
+    ],
+    "client_wall": {
+      "median_ms": 233.6855840003409,
+      "min_ms": 232.83120899941423,
+      "max_ms": 246.95100000008097,
+      "stdev_ms": 5.329979542714177,
+      "samples_ms": [
+        233.6855840003409,
+        232.83120899941423,
+        235.58670900001744,
+        233.24220799986506,
+        246.95100000008097
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b1ee9bd1a7234d0c498f6182ce3973320e0de86d8d5ca5092b04b7be35a9e416"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "fare_conditions"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "partition",
+    "variant": "flat",
+    "query": "partition_all",
+    "median_ms": 809.201,
+    "min_ms": 804.247,
+    "max_ms": 819.301,
+    "stdev_ms": 5.064027551267889,
+    "samples_ms": [
+      810.121,
+      804.247,
+      819.301,
+      807.178,
+      809.201
+    ],
+    "client_wall": {
+      "median_ms": 811.4412080003603,
+      "min_ms": 806.4586260006763,
+      "max_ms": 821.5027920005014,
+      "stdev_ms": 5.042900163063874,
+      "samples_ms": [
+        812.3655839999628,
+        806.4586260006763,
+        821.5027920005014,
+        809.5420010004091,
+        811.4412080003603
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "26dd3e3fc14646227191f8719bbf0cc8d2da9ecbff1f98a564461d3f1233d4ec"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "fare_conditions"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "partition",
+    "variant": "monthly",
+    "query": "partition_filter",
+    "median_ms": 33.608,
+    "min_ms": 32.836,
+    "max_ms": 34.538,
+    "stdev_ms": 0.5427093513106249,
+    "samples_ms": [
+      34.538,
+      33.5,
+      33.651,
+      33.608,
+      32.836
+    ],
+    "client_wall": {
+      "median_ms": 36.995833000219136,
+      "min_ms": 36.35762500016426,
+      "max_ms": 39.095624999390566,
+      "stdev_ms": 0.9616136113858511,
+      "samples_ms": [
+        37.82562499964115,
+        36.834583999734605,
+        36.995833000219136,
+        39.095624999390566,
+        36.35762500016426
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "b1ee9bd1a7234d0c498f6182ce3973320e0de86d8d5ca5092b04b7be35a9e416"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "fare_conditions"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  },
+  {
+    "group": "partition",
+    "variant": "monthly",
+    "query": "partition_all",
+    "median_ms": 816.074,
+    "min_ms": 808.169,
+    "max_ms": 823.88,
+    "stdev_ms": 5.686426737416038,
+    "samples_ms": [
+      808.169,
+      816.272,
+      816.074,
+      823.88,
+      809.187
+    ],
+    "client_wall": {
+      "median_ms": 818.4582920002867,
+      "min_ms": 811.0040000001391,
+      "max_ms": 826.7395009997927,
+      "stdev_ms": 5.680636901104547,
+      "samples_ms": [
+        811.0040000001391,
+        818.7979170006656,
+        818.4582920002867,
+        826.7395009997927,
+        811.9099579998874
+      ]
+    },
+    "equivalence": {
+      "rows": 3,
+      "sha256": "26dd3e3fc14646227191f8719bbf0cc8d2da9ecbff1f98a564461d3f1233d4ec"
+    },
+    "motion": [
+      {
+        "type": "Gather Motion",
+        "senders": 2,
+        "receivers": 1,
+        "actual_rows_reported": 3,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 72,
+        "hash_key": null
+      },
+      {
+        "type": "Redistribute Motion",
+        "senders": 2,
+        "receivers": 2,
+        "actual_rows_reported": 4,
+        "actual_loops": 1,
+        "plan_width": 24,
+        "reported_rows_times_plan_width": 96,
+        "hash_key": "fare_conditions"
+      }
+    ],
+    "join_input_motion": 0,
+    "motion_counts": {
+      "Gather Motion": 1,
+      "Redistribute Motion": 1
+    }
+  }
+]
